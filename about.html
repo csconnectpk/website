@@ -3,146 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - CS Connect Pakistan</title>
+    <title>About - CS Connect Pakistan</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="nav-logo">CS Connect Pakistan</a>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="images/logo.png" alt="CS Connect Pakistan Logo">
+                <span class="nav-logo-text">CS CONNECT PK</span>
+            </a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html" class="active">About Us</a>
-                <a href="blog.html">Blog</a>
-                <a href="challenge.html">Daily Challenge</a>
-                <a href="contact.html">Contact</a>
+                <a href="/">Home</a>
+                <a href="/about" class="active">About</a>
+                <a href="/blog">Blog</a>
+                <a href="/challenge">Daily Challenge</a>
+                <a href="/contact">Contact</a>
             </div>
-            <button class="mobile-menu-btn" onclick="mobileMenuToggle()">
+            <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <!-- About Hero Section -->
-    <section class="hero about-hero">
-        <div class="container">
-            <div class="hero-content animate-on-scroll">
-                <h1>About CS Connect Pakistan</h1>
-                <p>Building a stronger tech community in Pakistan through education, collaboration, and innovation.</p>
-            </div>
+    <section class="page-banner">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="page-banner-content">
+            <h1 class="page-title">About Us</h1>
+            <p class="page-description">Learn about our mission to empower Pakistan's tech community through education, collaboration, and innovation.</p>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission">
+    <section class="content-section">
         <div class="container">
-            <div class="mission-content animate-on-scroll">
-                <h2>Our Mission</h2>
-                <p>CS Connect Pakistan is dedicated to fostering a vibrant and inclusive tech community in Pakistan. We aim to:</p>
-                <ul>
-                    <li>Provide accessible learning resources for aspiring developers</li>
-                    <li>Create opportunities for skill development and networking</li>
-                    <li>Promote collaboration and knowledge sharing</li>
-                    <li>Support the growth of Pakistan's tech industry</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Our Team</h2>
-            <div class="team-grid">
-                <div class="card animate-on-scroll">
-                    <img src="https://via.placeholder.com/150" alt="Team Member" class="team-member-img">
-                    <h3>John Doe</h3>
-                    <p class="role">Founder & Lead Developer</p>
-                    <p>Passionate about building communities and creating impactful learning experiences.</p>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Our Story</h2>
+                    <p>CS Connect Pakistan was founded with a vision to bridge the gap between academic computer science education and industry requirements. We believe in the power of community-driven learning and the potential of Pakistan's tech talent.</p>
+                    <p>Since our inception, we've been dedicated to creating a platform where students, professionals, and enthusiasts can come together to learn, share, and grow in their tech journey.</p>
                 </div>
-                <div class="card animate-on-scroll">
-                    <img src="https://via.placeholder.com/150" alt="Team Member" class="team-member-img">
-                    <h3>Jane Smith</h3>
-                    <p class="role">Community Manager</p>
-                    <p>Dedicated to fostering meaningful connections and supporting community growth.</p>
-                </div>
-                <div class="card animate-on-scroll">
-                    <img src="https://via.placeholder.com/150" alt="Team Member" class="team-member-img">
-                    <h3>Mike Johnson</h3>
-                    <p class="role">Technical Lead</p>
-                    <p>Expert in software development and creating engaging technical content.</p>
+                <div class="about-image">
+                    <img src="images/about-hero.jpg" alt="CS Connect Pakistan Team">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="values">
+    <section class="content-section dark">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Our Values</h2>
-            <div class="values-grid">
-                <div class="card animate-on-scroll">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Community</h3>
-                    <p>We believe in the power of community and collaboration to drive innovation.</p>
-                </div>
-                <div class="card animate-on-scroll">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="mission-grid">
+                <div class="mission-card">
                     <i class="fas fa-graduation-cap"></i>
                     <h3>Education</h3>
-                    <p>We are committed to making quality tech education accessible to everyone.</p>
+                    <p>Provide quality tech education and resources to aspiring developers across Pakistan.</p>
                 </div>
-                <div class="card animate-on-scroll">
+                <div class="mission-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Community</h3>
+                    <p>Build a supportive community where members can learn from each other and grow together.</p>
+                </div>
+                <div class="mission-card">
                     <i class="fas fa-lightbulb"></i>
                     <h3>Innovation</h3>
-                    <p>We encourage creative thinking and the development of new solutions.</p>
+                    <p>Foster innovation and creativity through practical projects and challenges.</p>
                 </div>
-                <div class="card animate-on-scroll">
-                    <i class="fas fa-users"></i>
-                    <h3>Inclusivity</h3>
-                    <p>We welcome and value diverse perspectives in our community.</p>
+                <div class="mission-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Connection</h3>
+                    <p>Connect talented individuals with opportunities in the tech industry.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Join Us Section -->
-    <section class="join-us">
+    <section class="content-section">
         <div class="container">
-            <div class="join-content animate-on-scroll">
-                <h2>Join Our Community</h2>
-                <p>Be part of Pakistan's growing tech community. Whether you're a beginner or an experienced developer, there's a place for you here.</p>
-                <a href="contact.html" class="btn btn-primary">Get Involved</a>
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="images/team1.jpg" alt="Team Member 1">
+                    <h3>John Doe</h3>
+                    <p>Founder & CEO</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="images/team2.jpg" alt="Team Member 2">
+                    <h3>Jane Smith</h3>
+                    <p>Technical Lead</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="images/team3.jpg" alt="Team Member 3">
+                    <h3>Mike Johnson</h3>
+                    <p>Community Manager</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>CS Connect Pakistan</h3>
-                    <p>Empowering the next generation of developers in Pakistan.</p>
+                    <h3>About Us</h3>
+                    <p>CS Connect Pakistan is dedicated to nurturing tech talent and building a strong developer community.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="challenge.html">Daily Challenge</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/challenge">Daily Challenge</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Connect With Us</h3>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                    </ul>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CS Connect Pakistan. All rights reserved.</p>
             </div>
         </div>
     </footer>

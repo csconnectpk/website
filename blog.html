@@ -5,67 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - CS Connect Pakistan</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="page-container">
-        <nav class="navbar">
-            <div class="container nav-container">
-                <a href="index.html" class="nav-logo">
-                    <img src="images/logo.png" alt="CS Connect Pakistan">
-                </a>
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="blog.html" class="active">Blog</a>
-                    <a href="challenge.html">Daily Challenge</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="images/logo.png" alt="CS Connect Pakistan Logo">
+                <span class="nav-logo-text">CS CONNECT PK</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/blog" class="active">Blog</a>
+                <a href="/challenge">Daily Challenge</a>
+                <a href="/contact">Contact</a>
             </div>
-        </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-        <section class="hero">
-            <div class="hero-gradient"></div>
-            <div class="hero-content">
-                <h1 class="hero-heading">Blog & Resources</h1>
-                <p>Explore our collection of articles, tutorials, and insights about programming, technology, and career development.</p>
-            </div>
-        </section>
+    <section class="page-banner">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="page-banner-content">
+            <h1 class="page-title">Tech Blog</h1>
+            <p class="page-description">Stay updated with the latest in technology, programming tutorials, and community insights. Explore our collection of articles written by experts and community members.</p>
+        </div>
+    </section>
 
-        <main class="main-content">
-            <section class="blog-categories">
-                <div class="container">
-                    <div class="category-filters">
-                        <button class="btn btn-primary active">All</button>
-                        <button class="btn btn-primary">Web Development</button>
-                        <button class="btn btn-primary">Algorithms</button>
-                        <button class="btn btn-primary">Career Tips</button>
-                        <button class="btn btn-primary">Community</button>
+    <section class="content-section">
+        <div class="container">
+            <div class="blog-grid">
+                <article class="blog-card featured">
+                    <div class="blog-card-image">
+                        <img src="images/blog-featured.jpg" alt="Featured Blog Post">
+                        <span class="blog-category">Featured</span>
                     </div>
-                </div>
-            </section>
-
-            <section class="blog-posts">
-                <div class="container">
-                    <div class="blog-grid">
-                        <!-- Blog cards here -->
-                        <div class="blog-card">
-                            <div class="blog-card-content">
-                                <span class="category">Web Development</span>
-                                <h3>Getting Started with React</h3>
-                                <p>Learn the fundamentals of React and start building modern web applications.</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
+                    <div class="blog-card-content">
+                        <h2>Getting Started with Web Development in 2024</h2>
+                        <p>A comprehensive guide to beginning your journey in web development, covering essential technologies and best practices.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 15, 2024</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
                         </div>
-                        <!-- More blog cards -->
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section dark">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="images/blog1.jpg" alt="Blog Post 1">
+                        <span class="blog-category">Tutorial</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Understanding React Hooks</h3>
+                        <p>Learn how to use React Hooks effectively in your applications with practical examples.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 12, 2024</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="images/blog2.jpg" alt="Blog Post 2">
+                        <span class="blog-category">Career</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Landing Your First Tech Job</h3>
+                        <p>Tips and strategies for landing your first job in the tech industry as a fresh graduate.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 10, 2024</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="images/blog3.jpg" alt="Blog Post 3">
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>The Future of AI in Pakistan</h3>
+                        <p>Exploring the growing AI ecosystem in Pakistan and future opportunities.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 8, 2024</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="images/blog4.jpg" alt="Blog Post 4">
+                        <span class="blog-category">Community</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Building a Tech Community</h3>
+                        <p>How to create and nurture a thriving tech community in your local area.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 5, 2024</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>CS Connect Pakistan is dedicated to nurturing tech talent and building a strong developer community.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/challenge">Daily Challenge</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CS Connect Pakistan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

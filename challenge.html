@@ -5,271 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Challenge - CS Connect Pakistan</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="page-container">
-        <nav class="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo">
-                    <img src="images/logo.png" alt="CS Connect Pakistan">
-                </a>
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="challenge.html" class="active">Daily Challenge</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="images/logo.png" alt="CS Connect Pakistan Logo">
+                <span class="nav-logo-text">CS CONNECT PK</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/blog">Blog</a>
+                <a href="/challenge" class="active">Daily Challenge</a>
+                <a href="/contact">Contact</a>
             </div>
-        </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-        <section class="hero">
-            <div class="hero-gradient"></div>
-            <div class="hero-content">
-                <h1 class="hero-heading">Daily Programming Challenge</h1>
-                <p>Test your coding skills with our daily challenges and compete with other developers.</p>
-                <div class="challenge-timer-container">
-                    <span>Time Remaining:</span>
-                    <span class="challenge-timer">00:00:00</span>
+    <section class="page-banner">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="page-banner-content">
+            <h1 class="page-title">Daily Programming Challenge</h1>
+            <p class="page-description">Test your coding skills with our daily challenges and compete with other developers. Level up your programming abilities one challenge at a time.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <h3>Today's Challenge</h3>
+                    <p>Solve an algorithmic puzzle that tests your problem-solving skills and coding efficiency.</p>
+                    <a href="#" class="btn btn-primary">Start Challenge</a>
+                </div>
+                <div class="challenge-card">
+                    <h3>Leaderboard</h3>
+                    <p>See how you rank against other developers and track your progress over time.</p>
+                    <a href="#" class="btn btn-secondary">View Rankings</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <main class="main-content">
-            <!-- Challenge Content -->
-            <section class="challenge-content">
-                <div class="container">
-                    <div class="challenge-grid">
-                        <!-- Challenge Description -->
-                        <div class="challenge-description animate-on-scroll">
-                            <h2>Today's Challenge</h2>
-                            <div class="challenge-difficulty">
-                                <span class="difficulty-badge">Medium</span>
-                                <span class="challenge-points">100 points</span>
-                            </div>
-                            <div class="challenge-text">
-                                <h3>Problem Statement</h3>
-                                <p>Given an array of integers, find the maximum sum of a contiguous subarray.</p>
-                                
-                                <h3>Example</h3>
-                                <pre><code>Input: [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-Output: 6
-Explanation: [4, -1, 2, 1] has the largest sum = 6</code></pre>
-
-                                <h3>Constraints</h3>
-                                <ul>
-                                    <li>1 ≤ nums.length ≤ 10^5</li>
-                                    <li>-10^4 ≤ nums[i] ≤ 10^4</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Code Editor -->
-                        <div class="code-editor animate-on-scroll">
-                            <div class="editor-header">
-                                <select id="language-select" class="form-control">
-                                    <option value="javascript">JavaScript</option>
-                                    <option value="python">Python</option>
-                                    <option value="java">Java</option>
-                                    <option value="cpp">C++</option>
-                                </select>
-                                <button class="btn btn-primary" onclick="runCode()">Run Code</button>
-                                <button class="btn btn-primary" onclick="submitCode()">Submit</button>
-                            </div>
-                            <textarea id="code-editor"></textarea>
-                            <div class="editor-footer">
-                                <div class="test-cases">
-                                    <h4>Test Cases</h4>
-                                    <div class="test-case">
-                                        <span class="test-case-number">Test Case 1</span>
-                                        <span class="test-case-status pending">Pending</span>
-                                    </div>
-                                    <div class="test-case">
-                                        <span class="test-case-number">Test Case 2</span>
-                                        <span class="test-case-status pending">Pending</span>
-                                    </div>
-                                    <div class="test-case">
-                                        <span class="test-case-number">Test Case 3</span>
-                                        <span class="test-case-status pending">Pending</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <section class="content-section dark">
+        <div class="container">
+            <h2 class="section-title">Previous Challenges</h2>
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <h3>Array Manipulation</h3>
+                    <p>Practice your array manipulation skills with this challenging problem set.</p>
+                    <a href="#" class="btn btn-secondary">View Challenge</a>
                 </div>
-            </section>
-
-            <!-- Leaderboard -->
-            <section class="leaderboard">
-                <div class="container">
-                    <h2 class="section-title animate-on-scroll">Today's Leaderboard</h2>
-                    <div class="leaderboard-table animate-on-scroll">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Name</th>
-                                    <th>Time</th>
-                                    <th>Points</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>John Doe</td>
-                                    <td>00:15:23</td>
-                                    <td>100</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jane Smith</td>
-                                    <td>00:18:45</td>
-                                    <td>95</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Mike Johnson</td>
-                                    <td>00:20:12</td>
-                                    <td>90</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="challenge-card">
+                    <h3>String Operations</h3>
+                    <p>Test your string manipulation abilities with various operations.</p>
+                    <a href="#" class="btn btn-secondary">View Challenge</a>
                 </div>
-            </section>
-
-            <!-- Previous Challenges -->
-            <section class="previous-challenges">
-                <div class="container">
-                    <h2 class="section-title animate-on-scroll">Previous Challenges</h2>
-                    <div class="challenges-grid">
-                        <div class="card animate-on-scroll">
-                            <h3>Two Sum</h3>
-                            <p>Find two numbers in an array that add up to a target value.</p>
-                            <a href="#" class="btn btn-primary">View Challenge</a>
-                        </div>
-                        <div class="card animate-on-scroll">
-                            <h3>Palindrome Check</h3>
-                            <p>Determine if a string is a palindrome.</p>
-                            <a href="#" class="btn btn-primary">View Challenge</a>
-                        </div>
-                        <div class="card animate-on-scroll">
-                            <h3>Binary Search</h3>
-                            <p>Implement binary search in a sorted array.</p>
-                            <a href="#" class="btn btn-primary">View Challenge</a>
-                        </div>
-                    </div>
+                <div class="challenge-card">
+                    <h3>Dynamic Programming</h3>
+                    <p>Solve complex problems using dynamic programming techniques.</p>
+                    <a href="#" class="btn btn-secondary">View Challenge</a>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div class="challenge-card">
+                    <h3>Graph Algorithms</h3>
+                    <p>Navigate through graph-based challenges and optimize your solutions.</p>
+                    <a href="#" class="btn btn-secondary">View Challenge</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>CS Connect Pakistan</h3>
-                    <p>Empowering the next generation of developers in Pakistan.</p>
+                    <h3>About Us</h3>
+                    <p>CS Connect Pakistan is dedicated to nurturing tech talent and building a strong developer community.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="challenge.html">Daily Challenge</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/challenge">Daily Challenge</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Connect With Us</h3>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                    </ul>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CS Connect Pakistan. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- CodeMirror Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
     <script src="script.js"></script>
-    <script>
-        // Initialize CodeMirror
-        const editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
-            mode: "javascript",
-            theme: "monokai",
-            lineNumbers: true,
-            autoCloseBrackets: true,
-            matchBrackets: true,
-            indentUnit: 4,
-            tabSize: 4
-        });
-
-        // Set default code
-        editor.setValue(`function maxSubArray(nums) {
-    // Your code here
-}`);
-
-        // Language selector change handler
-        document.getElementById("language-select").addEventListener("change", function(e) {
-            const language = e.target.value;
-            let mode;
-            switch(language) {
-                case "javascript":
-                    mode = "javascript";
-                    editor.setValue(`function maxSubArray(nums) {
-    // Your code here
-}`);
-                    break;
-                case "python":
-                    mode = "python";
-                    editor.setValue(`def maxSubArray(nums):
-    # Your code here`);
-                    break;
-                case "java":
-                    mode = "text/x-java";
-                    editor.setValue(`class Solution {
-    public int maxSubArray(int[] nums) {
-        // Your code here
-    }
-}`);
-                    break;
-                case "cpp":
-                    mode = "text/x-c++src";
-                    editor.setValue(`class Solution {
-public:
-    int maxSubArray(vector<int>& nums) {
-        // Your code here
-    }
-};`);
-                    break;
-            }
-            editor.setOption("mode", mode);
-        });
-
-        // Run code function
-        function runCode() {
-            // Implementation for running code
-            console.log("Running code...");
-        }
-
-        // Submit code function
-        function submitCode() {
-            // Implementation for submitting code
-            console.log("Submitting code...");
-        }
-    </script>
 </body>
 </html> 

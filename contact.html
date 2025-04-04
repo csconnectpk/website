@@ -3,161 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - CS Connect Pakistan</title>
+    <title>Contact - CS Connect Pakistan</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="page-container">
-        <nav class="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo">
-                    <img src="images/logo.png" alt="CS Connect Pakistan">
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="images/logo.png" alt="CS Connect Pakistan Logo">
+                <span class="nav-logo-text">CS CONNECT PK</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/blog">Blog</a>
+                <a href="/challenge">Daily Challenge</a>
+                <a href="/contact" class="active">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-banner">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="page-banner-content">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-description">Have questions or want to get involved? We'd love to hear from you. Reach out to us through any of the channels below.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>info@csconnectpk.com</p>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <h3>Phone</h3>
+                            <p>+92 300 1234567</p>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Location</h3>
+                            <p>Islamabad, Pakistan</p>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-clock"></i>
+                            <h3>Office Hours</h3>
+                            <p>Mon-Fri: 9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section dark">
+        <div class="container">
+            <h2 class="section-title">Connect on Social Media</h2>
+            <div class="social-grid">
+                <a href="#" class="social-card">
+                    <i class="fab fa-twitter"></i>
+                    <h3>Twitter</h3>
+                    <p>Follow us for the latest updates</p>
                 </a>
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="challenge.html">Daily Challenge</a>
-                    <a href="contact.html" class="active">Contact</a>
-                </div>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <a href="#" class="social-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with our professional network</p>
+                </a>
+                <a href="#" class="social-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>Explore our open-source projects</p>
+                </a>
+                <a href="#" class="social-card">
+                    <i class="fab fa-discord"></i>
+                    <h3>Discord</h3>
+                    <p>Join our community chat</p>
+                </a>
             </div>
-        </nav>
+        </div>
+    </section>
 
-        <section class="hero">
-            <div class="hero-gradient"></div>
-            <div class="hero-content">
-                <h1 class="hero-heading">Get in Touch</h1>
-                <p>Have questions or want to join our community? We'd love to hear from you.</p>
-            </div>
-        </section>
-
-        <main class="main-content">
-            <!-- Contact Section -->
-            <section class="contact">
-                <div class="container">
-                    <div class="contact-grid">
-                        <!-- Contact Form -->
-                        <div class="contact-form animate-on-scroll">
-                            <h2>Send Us a Message</h2>
-                            <form id="contactForm" onsubmit="return validateForm(this)">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="subject">Subject</label>
-                                    <input type="text" id="subject" name="subject" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Send Message</button>
-                            </form>
-                        </div>
-
-                        <!-- Contact Information -->
-                        <div class="contact-info animate-on-scroll">
-                            <h2>Contact Information</h2>
-                            <div class="info-card">
-                                <div class="info-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div>
-                                        <h3>Address</h3>
-                                        <p>123 Tech Street, Karachi, Pakistan</p>
-                                    </div>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-envelope"></i>
-                                    <div>
-                                        <h3>Email</h3>
-                                        <p>info@csconnect.pk</p>
-                                    </div>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-phone"></i>
-                                    <div>
-                                        <h3>Phone</h3>
-                                        <p>+92 300 1234567</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Social Media Links -->
-                            <div class="social-links">
-                                <h3>Follow Us</h3>
-                                <div class="social-icons">
-                                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FAQ Section -->
-            <section class="faq">
-                <div class="container">
-                    <h2 class="section-title animate-on-scroll">Frequently Asked Questions</h2>
-                    <div class="faq-grid">
-                        <div class="card animate-on-scroll">
-                            <h3>How can I join the community?</h3>
-                            <p>You can join our community by signing up on our website and participating in our events and challenges.</p>
-                        </div>
-                        <div class="card animate-on-scroll">
-                            <h3>Are the resources free?</h3>
-                            <p>Yes, all our learning resources and challenges are completely free to access.</p>
-                        </div>
-                        <div class="card animate-on-scroll">
-                            <h3>How can I contribute?</h3>
-                            <p>You can contribute by sharing your knowledge, creating content, or helping other community members.</p>
-                        </div>
-                        <div class="card animate-on-scroll">
-                            <h3>Do you offer mentorship?</h3>
-                            <p>Yes, we have a mentorship program where experienced developers guide beginners in their learning journey.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>CS Connect Pakistan</h3>
-                    <p>Empowering the next generation of developers in Pakistan.</p>
+                    <h3>About Us</h3>
+                    <p>CS Connect Pakistan is dedicated to nurturing tech talent and building a strong developer community.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="challenge.html">Daily Challenge</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/challenge">Daily Challenge</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Connect With Us</h3>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                    </ul>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CS Connect Pakistan. All rights reserved.</p>
             </div>
         </div>
     </footer>
