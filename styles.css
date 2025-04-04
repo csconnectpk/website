@@ -170,15 +170,12 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.03) 0px,
-        rgba(255, 255, 255, 0.03) 1px,
-        transparent 1px,
-        transparent 12px
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.7) 100%
     );
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
     z-index: 2;
     pointer-events: none;
 }
@@ -331,17 +328,19 @@ body {
     inset: 0;
     background: 
         linear-gradient(90deg, 
-            rgba(255, 255, 255, 0.03) 0%,
-            rgba(255, 255, 255, 0.08) 50%,
-            rgba(255, 255, 255, 0.03) 100%
+            rgba(255, 255, 255, 0.01) 0%,
+            rgba(255, 255, 255, 0.03) 50%,
+            rgba(255, 255, 255, 0.01) 100%
         ),
         repeating-linear-gradient(
             90deg,
-            rgba(255, 255, 255, 0.12) 0px,
-            rgba(255, 255, 255, 0.16) 1px,
-            rgba(255, 255, 255, 0.08) 2px,
-            transparent 2px,
-            transparent 8px
+            rgba(255, 255, 255, 0.22) 0px,
+            rgba(255, 255, 255, 0.25) 1px,
+            rgba(255, 255, 255, 0.12) 2px,
+            rgba(0, 0, 0, 0.05) 3px,
+            rgba(0, 0, 0, 0.1) 4px,
+            transparent 5px,
+            transparent 12px
         );
     z-index: 2;
     pointer-events: none;
@@ -350,24 +349,26 @@ body {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     box-shadow: 
-        inset 0 0 30px rgba(255, 255, 255, 0.1),
-        inset 0 0 60px rgba(255, 255, 255, 0.05),
-        0 0 20px rgba(255, 255, 255, 0.05);
+        inset 0 0 50px rgba(255, 255, 255, 0.05),
+        inset 0 0 100px rgba(0, 0, 0, 0.1);
 }
 
 .reeded-glass::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        45deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.05) 45%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0.05) 55%,
-        transparent 100%
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        rgba(255, 255, 255, 0.15) 1px,
+        rgba(255, 255, 255, 0.2) 2px,
+        rgba(255, 255, 255, 0.15) 3px,
+        rgba(0, 0, 0, 0.05) 4px,
+        transparent 5px,
+        transparent 12px
     );
-    pointer-events: none;
+    opacity: 0.7;
+    mix-blend-mode: overlay;
 }
 
 .reeded-glass::after {
@@ -376,73 +377,77 @@ body {
     inset: 0;
     background: repeating-linear-gradient(
         90deg,
-        rgba(255, 255, 255, 0.03) 0px,
-        rgba(255, 255, 255, 0.06) 1px,
-        transparent 1px,
-        transparent 8px
+        rgba(0, 0, 0, 0.05) 0px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.15) 3px,
+        rgba(0, 0, 0, 0.05) 4px,
+        transparent 5px,
+        transparent 12px
     );
-    opacity: 0.5;
-    mix-blend-mode: overlay;
-    pointer-events: none;
+    opacity: 0.9;
+    mix-blend-mode: multiply;
 }
 
 .gradient-sphere {
     position: absolute;
-    width: 1200px;
-    height: 1200px;
-    border-radius: 50%;
-    filter: blur(100px) brightness(1.5) contrast(1.3);
-    opacity: 0.8;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background: 
+        radial-gradient(
+            circle at 30% 40%,
+            rgba(80, 200, 255, 1) 0%,
+            rgba(0, 110, 255, 0.9) 15%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 70% 60%,
+            rgba(170, 0, 255, 1) 0%,
+            rgba(147, 51, 234, 0.9) 15%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(0, 200, 255, 0.8) 0%,
+            rgba(88, 80, 255, 0.7) 20%,
+            rgba(0, 0, 0, 0) 50%
+        );
+    filter: blur(60px) contrast(1.8) brightness(1.2);
     mix-blend-mode: screen;
-    animation: prismLight 15s infinite alternate ease-in-out;
+    opacity: 0.95;
+    animation: swirlGradient 15s infinite linear;
+    transform-origin: center center;
     z-index: 1;
 }
 
-.gradient-sphere:nth-child(2) {
-    background: radial-gradient(
-        circle at center,
-        rgba(255, 0, 255, 0.9) 0%,
-        rgba(147, 51, 234, 0.8) 25%,
-        rgba(88, 80, 255, 0.6) 45%,
-        rgba(0, 183, 255, 0.4) 65%,
-        transparent 85%
-    );
-    top: -30%;
-    right: -20%;
-    animation-delay: -7s;
-}
-
-.gradient-sphere:nth-child(3) {
-    background: radial-gradient(
-        circle at center,
-        rgba(0, 247, 255, 0.9) 0%,
-        rgba(0, 183, 255, 0.8) 25%,
-        rgba(88, 80, 255, 0.6) 45%,
-        rgba(147, 51, 234, 0.4) 65%,
-        transparent 85%
-    );
-    bottom: -40%;
-    left: -30%;
-    animation-delay: -3s;
-}
-
-@keyframes prismLight {
+@keyframes swirlGradient {
     0% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-        filter: blur(100px) brightness(1.5) contrast(1.3) hue-rotate(0deg);
+        transform: rotate(0deg) scale(1);
+        filter: blur(60px) contrast(1.8) brightness(1.2) hue-rotate(0deg);
     }
-    33% {
-        transform: translate(-5%, -5%) scale(1.1) rotate(120deg);
-        filter: blur(120px) brightness(1.8) contrast(1.4) hue-rotate(120deg);
+    25% {
+        transform: rotate(90deg) scale(1.2);
+        filter: blur(70px) contrast(2) brightness(1.3) hue-rotate(90deg);
     }
-    66% {
-        transform: translate(5%, 5%) scale(0.95) rotate(240deg);
-        filter: blur(110px) brightness(1.6) contrast(1.5) hue-rotate(240deg);
+    50% {
+        transform: rotate(180deg) scale(1);
+        filter: blur(60px) contrast(1.8) brightness(1.2) hue-rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg) scale(1.2);
+        filter: blur(70px) contrast(2) brightness(1.3) hue-rotate(270deg);
     }
     100% {
-        transform: translate(0, 0) scale(1) rotate(360deg);
-        filter: blur(100px) brightness(1.5) contrast(1.3) hue-rotate(360deg);
+        transform: rotate(360deg) scale(1);
+        filter: blur(60px) contrast(1.8) brightness(1.2) hue-rotate(360deg);
     }
+}
+
+/* Remove previous gradient spheres */
+.gradient-sphere:nth-child(2),
+.gradient-sphere:nth-child(3) {
+    display: none;
 }
 
 @media (max-width: 768px) {
