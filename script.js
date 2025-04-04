@@ -1,4 +1,62 @@
-// Smooth scroll for navigation links
+// Page Transitions
+document.addEventListener("DOMContentLoaded", () => {
+    // Add fade-in class to main content
+    document.body.classList.add("page-transition");
+    requestAnimationFrame(() => {
+        document.body.classList.add("fade-in");
+    });
+
+    // Handle link clicks for smooth page transitions
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", e => {
+            // Only handle internal links
+            if (link.href && link.href.startsWith(window.location.origin)) {
+                e.preventDefault();
+                document.body.classList.remove("fade-in");
+                
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 600); // Match this with CSS transition duration
+            }
+        });
+    });
+});
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: "50px"
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running";
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe elements with animations
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedElements = document.querySelectorAll('.feature-card, .blog-card');
+    animatedElements.forEach(el => {
+        el.style.animationPlayState = "paused";
+        observer.observe(el);
+    });
+});
+
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+}
+
+// Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -8,49 +66,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fadeIn');
-            observer.unobserve(entry.target);
-        }
+// Newsletter Form
+const newsletterForm = document.querySelector('.newsletter-form');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input[type="email"]').value;
+        console.log('Newsletter subscription:', email);
+        newsletterForm.reset();
+        alert('Thank you for subscribing!');
     });
-}, observerOptions);
-
-// Observe elements with the 'animate-on-scroll' class
-document.querySelectorAll('.animate-on-scroll').forEach(element => {
-    observer.observe(element);
-});
-
-// Mobile menu toggle
-const mobileMenuToggle = () => {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-};
-
-// Form validation
-const validateForm = (form) => {
-    let isValid = true;
-    const inputs = form.querySelectorAll('input, textarea');
-    
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            isValid = false;
-            input.classList.add('error');
-        } else {
-            input.classList.remove('error');
-        }
-    });
-    
-    return isValid;
-};
+}
 
 // Challenge timer
 const updateChallengeTimer = () => {

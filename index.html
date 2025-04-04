@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS Connect Pakistan - Home</title>
+    <title>CS Connect Pakistan</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="page-container">
-        <nav class="navbar">
+        <!-- Navigation -->
+        <nav class="nav">
             <div class="container nav-container">
                 <a href="index.html" class="nav-logo">
-                    <img src="images/logo.png" alt="CS Connect Pakistan">
+                    <img src="images/logo.png" alt="CS Connect Pakistan Logo">
+                    <span class="nav-logo-text">CS CONNECT PK</span>
                 </a>
                 <div class="nav-links">
-                    <a href="index.html" class="active">Home</a>
+                    <a href="index.html">Home</a>
                     <a href="about.html">About</a>
                     <a href="blog.html">Blog</a>
                     <a href="challenge.html">Daily Challenge</a>
@@ -27,57 +29,118 @@
             </div>
         </nav>
 
+        <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-gradient"></div>
-            <div class="container hero-content">
-                <div class="hero-branding">
-                    <img src="images/logo.png" alt="CS Connect Pakistan" class="hero-logo">
-                    <h1 class="site-title">CS Connect</h1>
+            <div class="mesh-layer"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="site-title">CS CONNECT PAKISTAN</h1>
+                    <p class="hero-description">Empowering Pakistan's tech community through education, collaboration, and innovation. Join us in shaping the future of computer science.</p>
+                    <div class="hero-cta">
+                        <a href="/join" class="btn btn-primary">Join Community</a>
+                        <a href="/about" class="btn btn-secondary">Learn More</a>
+                    </div>
                 </div>
-                <h2 class="hero-heading">Set the tone for Pakistan's tech future</h2>
-                <p>Join CS Connect Pakistan - where innovation meets community. We're building the next generation of tech leaders through daily challenges, expert resources, and a vibrant community of learners and professionals.</p>
-                <a href="about.html" class="btn btn-primary">Learn More</a>
+                <div class="gradient-animation">
+                    <div class="gradient-cube">
+                        <div class="cube-face front"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face bottom"></div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Main Content -->
         <main class="main-content">
+            <!-- Features Section -->
             <section class="features">
                 <div class="container">
-                    <div class="feature-card">
-                        <i class="fas fa-code feature-icon"></i>
-                        <h3>Daily Challenges</h3>
-                        <p>Sharpen your coding skills with our daily programming challenges and compete with other developers.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <i class="fas fa-users feature-icon"></i>
-                        <h3>Community</h3>
-                        <p>Connect with fellow developers, share knowledge, and grow together in a supportive environment.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <i class="fas fa-book feature-icon"></i>
-                        <h3>Resources</h3>
-                        <p>Access curated learning materials, tutorials, and guides to accelerate your development journey.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="blog-section">
-                <div class="container">
-                    <h2>Latest from Our Blog</h2>
-                    <div class="blog-grid">
-                        <div class="blog-card">
-                            <div class="blog-card-content">
-                                <h3>Getting Started with Web Development</h3>
-                                <p>Learn the fundamentals of web development and start your journey as a developer.</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
+                    <h2 class="section-title">What We Offer</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3>Daily Challenges</h3>
+                            <p>Test your skills with our daily programming challenges and compete with other developers.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Learning Resources</h3>
+                            <p>Access curated learning materials and tutorials to enhance your programming skills.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Community Support</h3>
+                            <p>Connect with fellow developers, share knowledge, and grow together in our supportive community.</p>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Latest Blog Posts -->
+            <section class="blog-section">
+                <div class="container">
+                    <h2>Latest from Our Blog</h2>
+                    <div class="blog-grid">
+                        <article class="blog-card">
+                            <div class="blog-card-content">
+                                <span class="category">Tutorial</span>
+                                <h3>Getting Started with React</h3>
+                                <p>Learn the basics of React and build your first component-based application.</p>
+                            </div>
+                        </article>
+                        <article class="blog-card">
+                            <div class="blog-card-content">
+                                <span class="category">Community</span>
+                                <h3>Building the Tech Community</h3>
+                                <p>How we're fostering a supportive environment for developers in Pakistan.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Section -->
+            <section class="newsletter">
+                <div class="container">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for the latest updates, tutorials, and community news.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="form-control">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </section>
         </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>CS Connect Pakistan</h3>
+                        <p>Empowering the next generation of developers in Pakistan.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="challenge.html">Daily Challenge</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Connect With Us</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script src="script.js"></script>
