@@ -340,18 +340,17 @@ header {
     width: 100%;
 }
 
-.feature-card {
-    padding: 2.5rem;
-    border-radius: 12px;
-    text-align: center;
-    transition: all 0.5s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background-color: rgba(17, 17, 17, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+.card-container {
+    position: relative;
+    width: 100%;
+    max-width: 310px;
+    height: 320px;
+    margin: 0 auto;
     opacity: 0;
     transform: translateY(50px);
     animation: card-reveal 0.7s forwards;
-    animation-delay: calc(var(--card-index, 0) * 0.1s + 0.2s);
+    animation-delay: calc(var(--card-index, 0) * 0.2s + 0.3s);
+    flex: 1;
 }
 
 @keyframes card-reveal {
@@ -361,26 +360,210 @@ header {
     }
 }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    transition: transform 0.3s ease;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+.features-grid .card,
+.vision-content .card,
+.problem-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    color: #111;
+    padding: 24px;
+    border: 2px solid #000;
+    transition: all .5s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* Grid pattern background with animated gradient colors */
+    --grid-color1: rgba(0, 80, 255, 0.15);  /* Light blue */
+    --grid-color2: rgba(80, 0, 255, 0.15);  /* Light purple */
+    background-image: 
+        linear-gradient(0deg, transparent 24%, 
+            var(--grid-color1) 25%, 
+            var(--grid-color1) 26%, 
+            transparent 27%, 
+            transparent 74%, 
+            var(--grid-color2) 75%, 
+            var(--grid-color2) 76%, 
+            transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, 
+            var(--grid-color2) 25%, 
+            var(--grid-color2) 26%, 
+            transparent 27%, 
+            transparent 74%, 
+            var(--grid-color1) 75%, 
+            var(--grid-color1) 76%, 
+            transparent 77%, transparent);
+    background-size: 35px 35px;
+    animation: grid-colors 10s linear infinite;
 }
 
-.feature-card i {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--dark-text-primary);
+@keyframes grid-colors {
+    0% {
+        --grid-color1: rgba(0, 80, 255, 0.15);
+        --grid-color2: rgba(80, 0, 255, 0.15);
+    }
+    50% {
+        --grid-color1: rgba(80, 0, 255, 0.15);
+        --grid-color2: rgba(0, 80, 255, 0.15);
+    }
+    100% {
+        --grid-color1: rgba(0, 80, 255, 0.15);
+        --grid-color2: rgba(80, 0, 255, 0.15);
+    }
 }
 
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.features-grid .card-hidden,
+.vision-content .card-hidden,
+.problem-card .card-hidden {
+    display: flex;
+    transform: translateY(200%);
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform .5s ease-in, opacity .3s ease-in;
+    opacity: 0;
+    color: #111;
 }
 
-.feature-card p {
-    font-size: 1rem;
-    color: var(--dark-text-secondary);
+.card-border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border: 1px dashed white;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+/*Enhance card hover effects*/
+.features-grid .card:hover,
+.vision-content .card:hover,
+.problem-card:hover {
+    transform: translate(-15px, -15px);
+    border-color: #111;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* Remove grid pattern on hover */
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+.features-grid .card:hover .card-hidden,
+.vision-content .card:hover .card-hidden,
+.problem-card:hover .card-hidden {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.features-grid .card:hover .title,
+.vision-content .card:hover .title,
+.problem-card:hover .title {
+    transform: translateY(200%);
+}
+
+/*Text*/
+.features-grid .title,
+.vision-content .title,
+.problem-card .title {
+    position: absolute;
+    bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 1.6rem;
+    transition: transform .25s ease-out;
+    color: #111;
+}
+
+.features-grid .title-in,
+.vision-content .title-in,
+.problem-card .title-in {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #111;
+}
+
+/*Button*/
+.card-button,
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #0050ff, #4600ff, #8000ff);
+    background-size: 200% 200%;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    margin-top: 1rem;
+    border: none;
+    animation: gradient-shift 5s ease infinite;
+    box-shadow: 0 0 15px rgba(0, 80, 255, 0.3);
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.card-button:hover,
+.button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 25px rgba(80, 0, 255, 0.5);
+    background-size: 150% 150%;
+}
+
+/* Media queries to maintain single line */
+@media (max-width: 1200px) {
+    .features-grid {
+        gap: 1rem;
+    }
+    
+    .card-container {
+        max-width: 290px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    .card-container {
+        max-width: 280px;
+        height: 320px;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 1.4rem;
+    }
+    
+    .title-in {
+        font-size: 1.3rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .features-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card-container {
+        max-width: 320px;
+        margin-bottom: 2rem;
+    }
 }
 
 /* Community Section */
@@ -852,236 +1035,6 @@ html {
     transform: translateY(0);
 }
 
-/* New card design from Uiverse.io by alexruix */
-.card-container {
-  position: relative;
-  width: 190px;
-  height: 254px;
-  margin: 0 auto;
-  flex: 1;
-}
-
-.features-grid .card,
-.vision-content .card,
-.problem-card {
-  position: relative;
-  width: 190px;
-  height: 254px;
-  background: #f5f5f5;
-  border-radius: 8px;
-  color: #232323;
-  padding: 16px;
-  border: 1px solid #232323;
-  transition: all .5s ease-in-out;
-  overflow: hidden;
-}
-
-.features-grid .card-hidden,
-.vision-content .card-hidden,
-.problem-card .card-hidden {
-  display: flex;
-  transform: translateY(200%);
-  flex-direction: column;
-  gap: .5rem;
-  transition: transform .5s ease-in, opacity .3s ease-in;
-  opacity: 0;
-}
-
-.card-border {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  border: 1px dashed #232323;
-  border-radius: 8px;
-  z-index: -1;
-}
-
-/*Hovers*/
-.features-grid .card:hover,
-.vision-content .card:hover,
-.problem-card:hover {
-  transform: translate(-15px, -15px);
-  border-color: #5bc0eb;
-}
-
-.features-grid .card:hover .card-hidden,
-.vision-content .card:hover .card-hidden,
-.problem-card:hover .card-hidden {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.features-grid .card:hover .title,
-.vision-content .card:hover .title,
-.problem-card:hover .title {
-  transform: translateY(200%);
-}
-
-/*Text*/
-.features-grid .title,
-.vision-content .title,
-.problem-card .title {
-  position: absolute;
-  bottom: 1rem;
-  font-weight: 700;
-  font-size: 1.5rem;
-  transition: transform .25s ease-out;
-}
-
-.features-grid .title-in,
-.vision-content .title-in,
-.problem-card .title-in {
-  font-weight: 700;
-  font-size: 1.25rem;
-}
-
-/*Button*/
-.card-button,
-.button {
-  display: inline-flex;
-  justify-content: center;
-  padding: 8px;
-  border-radius: 24px;
-  font-weight: 600;
-  background-color: #5bc0eb;
-  cursor: pointer;
-  transition: background-color .3s ease-in-out;
-  text-decoration: none;
-  color: white;
-}
-
-.card-button:hover,
-.button:hover {
-  background-color: #53aed4;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .features-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .card-container {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 2rem;
-  }
-  
-  .features-grid .card,
-  .vision-content .card,
-  .problem-card {
-    width: 100%;
-  }
-}
-
-/* Add new nav button style (from Uiverse.io by Voxybuns with inverted colors) */
-.nav-button {
-  /* Variables */
-  --button_radius: 0.5em;
-  --button_color: #000000;
-  --button_outline_color: #ffffff;
-  font-size: 14px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  border-radius: var(--button_radius);
-  background: var(--button_outline_color);
-  margin: 0 0.5rem;
-}
-
-.nav-button_top {
-  display: block;
-  box-sizing: border-box;
-  border: 2px solid var(--button_outline_color);
-  border-radius: var(--button_radius);
-  padding: 0.5em 1em;
-  background: var(--button_color);
-  color: var(--button_outline_color);
-  transform: translateY(-0.2em);
-  transition: transform 0.1s ease;
-  text-decoration: none;
-}
-
-.nav-button:hover .nav-button_top {
-  /* Pull the button upwards when hovered */
-  transform: translateY(-0.33em);
-}
-
-.nav-button:active .nav-button_top {
-  /* Push the button downwards when pressed */
-  transform: translateY(0);
-}
-
-.nav-button.active .nav-button_top {
-  background: rgba(50, 50, 50, 0.8);
-  color: white;
-  transform: translateY(-0.2em);
-}
-
-/* Update nav links container */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Hide the old nav link underline effect */
-.nav-links a::after {
-  display: none;
-}
-
-/* Responsive adjustments for nav buttons */
-@media (max-width: 768px) {
-  .nav-button {
-    font-size: 12px;
-    --button_radius: 0.4em;
-    margin: 0 0.2rem;
-  }
-  
-  .nav-button_top {
-    padding: 0.4em 0.8em;
-  }
-  
-  .nav-links {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  .footer-nav-buttons {
-    gap: 0.6rem;
-  }
-  
-  .footer-nav-button {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-button {
-    font-size: 11px;
-    --button_radius: 0.3em;
-    margin: 0 0.15rem;
-  }
-  
-  .nav-button_top {
-    padding: 0.35em 0.7em;
-  }
-  
-  .navbar {
-    padding: 0.5rem 0;
-  }
-  
-  .footer-column {
-    margin-right: 0;
-    margin-bottom: 1.5rem;
-  }
-}
-
 /* About page styles */
 .about-content {
     padding: 2rem 0 4rem;
@@ -1459,126 +1412,74 @@ main section {
     margin: -2rem 0;
 }
 
-.problem-card {
-    background-color: rgba(17, 17, 17, 0.9);
-    border-radius: 12px;
-    padding: 2.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    max-width: 800px;
+.todays-problem .card-container {
     margin: 0 auto;
-    transform: translateY(30px);
-    opacity: 0;
-    animation: card-reveal 0.7s forwards;
+    max-width: 500px;
 }
 
-.problem-content {
-    color: var(--dark-text-primary);
-}
-
-.problem-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: #ffffff;
-}
-
-.problem-description {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.problem-details {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
-
-.problem-details .label {
-    color: rgba(255, 255, 255, 0.7);
-    margin-right: 0.5rem;
-}
-
-.problem-details .value {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.problem-footer {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.submit-btn {
-    position: relative;
-    overflow: hidden;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #5865F2;
-    color: white;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.submit-btn .filled {
-    position: absolute;
-    top: 0;
-    left: 0;
+.todays-problem .card {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
-.submit-btn:hover .filled {
-    opacity: 1;
+/* Ensure card styles are properly applied */
+.todays-problem .card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    color: #111;
+    padding: 24px;
+    border: 2px solid #000;
+    transition: all .5s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* Grid pattern background with animated gradient colors */
+    --grid-color1: rgba(0, 80, 255, 0.15);  /* Light blue */
+    --grid-color2: rgba(80, 0, 255, 0.15);  /* Light purple */
+    background-image: 
+        linear-gradient(0deg, transparent 24%, 
+            var(--grid-color1) 25%, 
+            var(--grid-color1) 26%, 
+            transparent 27%, 
+            transparent 74%, 
+            var(--grid-color2) 75%, 
+            var(--grid-color2) 76%, 
+            transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, 
+            var(--grid-color2) 25%, 
+            var(--grid-color2) 26%, 
+            transparent 27%, 
+            transparent 74%, 
+            var(--grid-color1) 75%, 
+            var(--grid-color1) 76%, 
+            transparent 77%, transparent);
+    background-size: 35px 35px;
+    animation: grid-colors 10s linear infinite;
 }
 
-.submit-btn svg {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    z-index: 1;
+.todays-problem .card:hover {
+    transform: translate(-15px, -15px);
+    border-color: #111;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* Remove grid pattern on hover */
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.98);
 }
 
-.submit-btn span {
-    position: relative;
-    z-index: 1;
+.todays-problem .card-border {
+    border: 1px dashed white;
 }
 
-@media (max-width: 768px) {
-    .problem-card {
-        padding: 1.5rem;
-        margin: 0 1rem;
-    }
+/* Improve font for card content */
+.card-hidden p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #111;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    .problem-title {
-        font-size: 1.5rem;
-    }
-
-    .problem-description {
-        font-size: 1rem;
-    }
-
-    .problem-details {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .submit-btn {
-        width: 100%;
-        justify-content: center;
-    }
+.title, .title-in {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.5px;
 }
 
 /* New WhatsApp card styles */
@@ -1815,4 +1716,109 @@ main section {
   margin: 0 auto;
   padding: 0 20px;
   width: 90%;
+}
+
+/* Add new nav button style (from Uiverse.io by Voxybuns with inverted colors) */
+.nav-button {
+  /* Variables */
+  --button_radius: 0.5em;
+  --button_color: #000000;
+  --button_outline_color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--button_radius);
+  background: var(--button_outline_color);
+  margin: 0 0.5rem;
+}
+
+.nav-button_top {
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.5em 1em;
+  background: var(--button_color);
+  color: var(--button_outline_color);
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+  text-decoration: none;
+}
+
+.nav-button:hover .nav-button_top {
+  /* Pull the button upwards when hovered */
+  transform: translateY(-0.33em);
+}
+
+.nav-button:active .nav-button_top {
+  /* Push the button downwards when pressed */
+  transform: translateY(0);
+}
+
+.nav-button.active .nav-button_top {
+  background: rgba(50, 50, 50, 0.8);
+  color: white;
+  transform: translateY(-0.2em);
+}
+
+/* Update nav links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Hide the old nav link underline effect */
+.nav-links a::after {
+  display: none;
+}
+
+/* Responsive adjustments for nav buttons */
+@media (max-width: 768px) {
+  .nav-button {
+    font-size: 12px;
+    --button_radius: 0.4em;
+    margin: 0 0.2rem;
+  }
+  
+  .nav-button_top {
+    padding: 0.4em 0.8em;
+  }
+  
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .footer-nav-buttons {
+    gap: 0.6rem;
+  }
+  
+  .footer-nav-button {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-button {
+    font-size: 11px;
+    --button_radius: 0.3em;
+    margin: 0 0.15rem;
+  }
+  
+  .nav-button_top {
+    padding: 0.35em 0.7em;
+  }
+  
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  .footer-column {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
 }
