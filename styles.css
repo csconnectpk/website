@@ -1482,6 +1482,77 @@ main section {
     letter-spacing: 0.5px;
 }
 
+/* Enhanced formatting for algorithm challenge card */
+.todays-problem .title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #0050ff;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    position: static;
+    text-align: center;
+    margin: 0 auto 1.5rem;
+    width: 100%;
+    bottom: auto;
+    transform: none;
+}
+
+.todays-problem .card:hover .title {
+    transform: translateY(-200%);
+    opacity: 0;
+}
+
+.todays-problem .card-hidden .title-in {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #222;
+    border-bottom: 2px solid #0050ff;
+    padding-bottom: 0.5rem;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.todays-problem .card-hidden p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+    color: #333;
+    font-weight: 400;
+    text-align: left;
+}
+
+.todays-problem .card-hidden {
+    display: flex;
+    transform: translateY(200%);
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform .5s ease-in, opacity .3s ease-in;
+    opacity: 0;
+    color: #111;
+    align-items: center;
+}
+
+.todays-problem .card-hidden p code {
+    background-color: rgba(0, 80, 255, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    color: #0050ff;
+    font-weight: 500;
+}
+
+.todays-problem .card-hidden .card-button {
+    align-self: center;
+    margin-top: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 0.8rem 1.5rem;
+}
+
 /* New WhatsApp card styles */
 .card {
     box-sizing: border-box;
