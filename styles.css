@@ -693,6 +693,17 @@ footer {
     border-radius: 50%;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.social-button svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .social-button.youtube {
@@ -710,10 +721,6 @@ footer {
 .social-button:hover {
     transform: translateY(-3px) scale(1.1);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.social-button svg {
-    fill: white;
 }
 
 /* Remove any card container styling that conflicts with main layout */
@@ -1302,92 +1309,124 @@ html {
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    padding: 0 1rem;
 }
 
 /* Contact card styles */
 .contact-card {
+    position: relative;
     width: 280px;
-    background: rgba(255, 255, 255, 0.9);
+    height: 320px;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
-    border: 2px solid transparent;
+    border: 2px solid #000;
     padding: 2rem;
     text-align: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all .5s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
-    position: relative;
     cursor: pointer;
     overflow: hidden;
+    /* Grid pattern background with animated gradient colors */
+    --grid-color1: rgba(0, 80, 255, 0.15);  /* Light blue */
+    --grid-color2: rgba(80, 0, 255, 0.15);  /* Light purple */
+    background-image: 
+        linear-gradient(0deg, transparent 24%, 
+            var(--grid-color1) 25%, 
+            var(--grid-color1) 26%, 
+            transparent 27%, 
+            transparent 74%, 
+            var(--grid-color2) 75%, 
+            var(--grid-color2) 76%, 
+            transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, 
+            var(--grid-color2) 25%, 
+            var(--grid-color2) 26%, 
+            transparent 27%, 
+            transparent 74%, 
+            var(--grid-color1) 75%, 
+            var(--grid-color1) 76%, 
+            transparent 77%, transparent);
+    background-size: 35px 35px;
+    animation: grid-colors 10s linear infinite;
 }
 
 .contact-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 10px;
-    border: 2px dashed rgba(255, 255, 255, 0);
-    transition: all 0.3s ease;
-}
-
-.contact-card:hover::before {
-    border: 2px dashed rgba(255, 255, 255, 1);
-    animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.card .card__title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #000000;
-    margin-bottom: 0.5rem;
-}
-
-.card .card__content {
-    color: #333333;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
-
-.contact-card .nav-button {
-    width: 100%;
-    max-width: 200px;
-    margin-top: 0.5rem;
-}
-
-.contact-card .nav-button_top {
-    width: 100%;
-    padding: 0.75em 1.5em;
-    font-size: 0.95rem;
+    display: none;
 }
 
 .contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    border-color: rgba(255, 255, 255, 0.1);
+    transform: translate(-15px, -15px);
+    border-color: #111;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* Remove grid pattern on hover */
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+.contact-card .card__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0050ff;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card .card__content {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.contact-card .nav-button {
+    width: auto;
+    max-width: none;
+    margin-top: 1rem;
+}
+
+.contact-card .nav-button_top {
+    background: linear-gradient(45deg, #0050ff, #4600ff, #8000ff);
+    background-size: 200% 200%;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-weight: 600;
+    animation: gradient-shift 5s ease infinite;
+    box-shadow: 0 0 15px rgba(0, 80, 255, 0.3);
+    transform: none;
+}
+
+.contact-card .nav-button:hover .nav-button_top {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 25px rgba(80, 0, 255, 0.5);
+    background-size: 150% 150%;
+}
+
+.contact-card .nav-button:active .nav-button_top {
+    transform: translateY(0) scale(0.95);
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
 }
 
 @media (max-width: 768px) {
     .contact-methods {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        padding: 0 1rem;
+        gap: 3rem;
     }
     
     .contact-card {
@@ -1706,6 +1745,17 @@ main section {
   border-radius: 50%;
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.social-button svg {
+  fill: white;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .social-button.youtube {
@@ -1723,10 +1773,6 @@ main section {
 .social-button:hover {
   transform: translateY(-3px) scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.social-button svg {
-  fill: white;
 }
 
 /* Remove problematic card styling */
@@ -1738,47 +1784,6 @@ main section {
 .contact-discord {
   background: #5865F2;
   color: #fff;
-}
-
-/* Social media buttons styling */
-.social-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.social-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.social-button.youtube {
-  background: #FF0000;
-}
-
-.social-button.whatsapp {
-  background: #25D366;
-}
-
-.social-button.discord {
-  background: #5865F2;
-}
-
-.social-button:hover {
-  transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.social-button svg {
-  fill: white;
 }
 
 /* Main container style */
