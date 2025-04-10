@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to create powerful layouts with CSS Grid - tips and tricks for beginners and intermediates">
+    <meta name="keywords" content="CSS Grid, web development, frontend, responsive design">
+    <meta name="author" content="Daily Code">
+    <meta property="og:title" content="Mastering CSS Grid: The Complete Guide">
+    <meta property="og:description" content="Learn how to create powerful layouts with CSS Grid - tips and tricks for beginners and intermediates">
+    <meta property="og:type" content="article">
+    <title>Mastering CSS Grid: The Complete Guide | Daily Code</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">Daily Code</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../daily-challenges.html">Daily Challenges</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blog-post">
+        <article>
+            <h1>Mastering CSS Grid: The Complete Guide</h1>
+            <div class="post-meta">
+                <span class="date">August 10, 2023</span>
+                <span class="author">by Sarah Chen</span>
+                <span class="read-time">8 min read</span>
+            </div>
+            
+            <section class="intro">
+                <p>CSS Grid has revolutionized the way we approach web layouts. Gone are the days of float hacks and complex positioning - Grid provides a robust, two-dimensional system that makes even the most complex layouts achievable with clean, semantic HTML and minimal CSS.</p>
+                <p>This guide will walk you through everything you need to know to start creating powerful layouts with CSS Grid.</p>
+            </section>
+
+            <section>
+                <h2>Grid Fundamentals</h2>
+                <p>At its core, CSS Grid works by dividing a container into rows and columns, creating cells where content can be placed. To create a grid container, simply use:</p>
+                <pre><code>.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+}</code></pre>
+                <p>This creates a simple three-column grid with equal width columns (using the <code>fr</code> unit) and automatically sized rows, with 20px spacing between elements.</p>
+            </section>
+
+            <section>
+                <h2>Powerful Placement Techniques</h2>
+                <p>One of the most powerful aspects of Grid is the ability to precisely place items:</p>
+                <pre><code>.item {
+  grid-column: 1 / 3; /* Start at line 1, end at line 3 */
+  grid-row: 2 / 4;    /* Start at line 2, end at line 4 */
+}</code></pre>
+                <p>Or use the shorthand:</p>
+                <pre><code>.item {
+  grid-area: 2 / 1 / 4 / 3; /* row-start / column-start / row-end / column-end */
+}</code></pre>
+                <p>This flexibility allows for complex layouts without nested divs or hacky solutions.</p>
+            </section>
+
+            <section>
+                <h2>Building a Responsive Image Gallery</h2>
+                <p>Grid shines when creating responsive layouts. Here's how to create an image gallery that adjusts based on viewport size:</p>
+                <pre><code>.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}</code></pre>
+                <p>This creates a responsive grid where each column is at least 250px wide, and as many columns as can fit will be created.</p>
+            </section>
+
+            <section>
+                <h2>Advanced Grid Features</h2>
+                <h3>Named Grid Areas</h3>
+                <p>Grid areas let you create layout templates using a visual ASCII representation:</p>
+                <pre><code>.container {
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer { grid-area: footer; }</code></pre>
+            </section>
+
+            <section>
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Use semantic HTML</strong> - Grid allows you to create layouts without compromise</li>
+                    <li><strong>Consider accessibility</strong> - Visual order doesn't always match source order</li>
+                    <li><strong>Be mindful of fallbacks</strong> - Consider how your layout looks in browsers without Grid support</li>
+                    <li><strong>Use developer tools</strong> - Most browsers now have Grid inspection tools</li>
+                </ul>
+            </section>
+
+            <section class="conclusion">
+                <h2>Wrapping Up</h2>
+                <p>CSS Grid is now supported in all major browsers, making it the perfect time to start incorporating it into your projects. Combined with Flexbox for one-dimensional layouts, you now have a powerful toolkit for tackling any layout challenge.</p>
+                <p>Start small by implementing Grid in a specific component, then gradually expand as your confidence grows. Before long, you'll wonder how you ever managed without it!</p>
+            </section>
+        </article>
+
+        <div class="comments-section">
+            <h3>Join the Discussion</h3>
+            <p>Have questions or tips about CSS Grid? Join our <a href="../contact.html">Discord community</a> to continue the conversation!</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Daily Code</h2>
+                <p>Learning to code, one day at a time.</p>
+            </div>
+            <nav class="footer-navigation">
+                <div class="nav-column">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../daily-challenges.html">Daily Challenges</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <h4>Connect</h4>
+                    <div class="social-buttons">
+                        <a href="#" class="social-button">Twitter</a>
+                        <a href="#" class="social-button">GitHub</a>
+                        <a href="#" class="social-button">Discord</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Daily Code. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - CS Connect Pakistan</title>
+    <meta name="description" content="Contact CS Connect Pakistan - Get in touch with our team through email, Discord, or our contact form. We're here to answer your questions and support your tech journey.">
+    <meta name="keywords" content="CS Connect, Pakistan, contact us, get in touch, tech community, Discord, email, support">
+    <meta name="author" content="CS Connect Pakistan">
+    <meta property="og:title" content="Contact Us - CS Connect Pakistan">
+    <meta property="og:description" content="Get in touch with our team through email, Discord, or our contact form. We're here to answer your questions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://csconnect.pk/contact.html">
+    <meta property="og:image" content="images/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://csconnect.pk/contact.html">
+    <title>Contact Us - CS Connect Pakistan</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -28,6 +38,9 @@
                     <button class="nav-button">
                         <a href="challenges.html" class="nav-button_top">Daily Challenges</a>
                     </button>
+                    <button class="nav-button">
+                        <a href="blog.html" class="nav-button_top">Blog</a>
+                    </button>
                     <button class="nav-button active">
                         <a href="contact.html" class="nav-button_top">Contact</a>
                     </button>
@@ -48,33 +61,82 @@
             </div>
         </section>
 
-        <section class="features">
+        <section class="contact-section">
             <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-form-container">
+                    <div class="contact-info">
+                        <h2 class="section-title-alt">CONTACT US</h2>
+                        <p>Interested in working together? Fill out some info and we will be in touch shortly. We can't wait to hear from you!</p>
+                    </div>
+                    <div class="contact-form">
+                        <form action="#" method="POST">
+                            <div class="form-group form-name-row">
+                                <div class="name-field">
+                                    <label for="first-name">Name <span>(required)</span></label>
+                                    <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+                                </div>
+                                <div class="name-field">
+                                    <label for="last-name" class="sr-only">Last Name</label> 
+                                    <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email <span>(required)</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message <span>(required)</span></label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group form-submit">
+                                <button type="submit" class="send-button">SEND</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-cards-section">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
                 <div class="contact-content">
                     <div class="contact-methods">
-                        <div class="card contact-card">
-                            <h3 class="card__title">Join Our Discord</h3>
-                            <p class="card__content">Connect with our community and team members for real-time discussions and support.</p>
-                            <button class="nav-button">
-                                <a href="https://discord.com/channels/1308089486613413888/1308114338107756634" target="_blank" class="nav-button_top">Join Discord</a>
-                            </button>
+                        <div class="card-container" style="--card-index: 0;">
+                            <div class="card">
+                                <div class="bg"></div>
+                                <div class="blob" style="top: -50px; right: -40px;"></div>
+                                <div class="blob" style="bottom: -60px; left: -30px;"></div>
+                                <h3 class="title">Join Our Discord</h3>
+                                <div class="card-hidden">
+                                    <h3 class="title-in">Join Our Discord</h3>
+                                    <ul class="contact-list">
+                                        <li>Real-time help on programming questions</li>
+                                        <li>Project collaboration opportunities</li>
+                                        <li>Career advice from industry professionals</li>
+                                        <li>Updates on upcoming events and workshops</li>
+                                    </ul>
+                                    <a href="https://discord.gg/csconnectpk" class="card-button">Join Discord</a>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="card contact-card">
-                            <h3 class="card__title">Email Us</h3>
-                            <p class="card__content">Send us a message and we'll get back to you as soon as possible.</p>
-                            <button class="nav-button">
-                                <a href="mailto:contact@csconnectpk.com" class="nav-button_top">Send Email</a>
-                            </button>
-                        </div>
-                        
-                        <div class="card contact-card">
-                            <h3 class="card__title">WhatsApp Group</h3>
-                            <p class="card__content">Join our WhatsApp group to stay connected and receive instant updates.</p>
-                            <button class="nav-button">
-                                <a href="https://chat.whatsapp.com/IM8Yw2D2Fv2EwbHqnCqVhn" target="_blank" class="nav-button_top">Join WhatsApp</a>
-                            </button>
+                        <div class="card-container" style="--card-index: 1;">
+                            <div class="card">
+                                <div class="bg"></div>
+                                <div class="blob" style="top: -40px; left: -40px;"></div>
+                                <div class="blob" style="bottom: -50px; right: -30px;"></div>
+                                <h3 class="title">Email Us</h3>
+                                <div class="card-hidden">
+                                    <h3 class="title-in">Email Us</h3>
+                                    <ul class="contact-list">
+                                        <li>Partnership inquiries and collaborations</li>
+                                        <li>Speaking engagement opportunities</li>
+                                        <li>Technical support and troubleshooting</li>
+                                        <li>Feedback and suggestions</li>
+                                    </ul>
+                                    <a href="mailto:contact@csconnectpk.org" class="card-button">Send Email</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -122,6 +184,9 @@
                             </button>
                             <button class="nav-button footer-nav-button">
                                 <a href="challenges.html" class="nav-button_top">Challenges</a>
+                            </button>
+                            <button class="nav-button footer-nav-button">
+                                <a href="blog.html" class="nav-button_top">Blog</a>
                             </button>
                             <button class="nav-button footer-nav-button">
                                 <a href="contact.html" class="nav-button_top">Contact</a>
