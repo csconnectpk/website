@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Connect Challenges</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen text-white">
+    <!-- Cyber Background -->
+    <div class="cyber-background">
+      <div class="neon-line"></div>
+      <div class="neon-line"></div>
+      <div class="neon-line"></div>
+      <div class="neon-line"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <a href="https://forms.gle/tgwZeBg6YTqRURjE8" target="_blank" rel="noopener noreferrer" 
+               class="register-button inline-flex items-center px-4 py-2 rounded-full text-sm font-bold">
+              <i data-lucide="arrow-right" class="w-4 h-4 mr-2"></i>
+              Register
+            </a>
+            <a href="index.html" class="flex items-center space-x-2 text-[#00ff9d] hover:text-[#00ffff] transition-colors">
+              <img src="favicon.jpg" alt="Logo" class="h-8 w-8">
+              <span class="font-bold">CS Connect</span>
+            </a>
+          </div>
+          <div class="hidden md:flex space-x-4">
+            <a href="index.html#home" class="nav-link">Home</a>
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#join" class="nav-link">Join Us</a>
+            <a href="challenges.html" class="nav-link">Challenges</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+          </div>
+          <div class="md:hidden">
+            <button class="mobile-menu-button p-2 text-[#00ff9d] hover:text-[#00ffff]">
+              <i data-lucide="menu"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div class="mobile-menu hidden md:hidden">
+        <div class="px-4 py-2 space-y-2">
+          <a href="index.html#home" class="block nav-link">Home</a>
+          <a href="index.html#about" class="block nav-link">About</a>
+          <a href="index.html#join" class="block nav-link">Join Us</a>
+          <a href="challenges.html" class="block nav-link">Challenges</a>
+          <a href="index.html#contact" class="block nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+      <!-- Discord Info Section -->
+      <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="text-5xl font-bold mb-12 text-center text-white animate-fade-in-up">
+            Weekly Challenges
+          </h1>
+          
+          <div class="challenge-box rounded-lg p-8 mb-12">
+            <div class="challenge-content">
+              <h2 class="text-3xl font-bold mb-6 text-white">About Our Discord Community</h2>
+              <p class="text-white mb-4">
+                Our Discord server is a vibrant community of tech enthusiasts where we host weekly coding challenges, 
+                share knowledge, and help each other grow. Join us to:
+              </p>
+              <ul class="list-disc list-inside space-y-2 text-white mb-6">
+                <li>Participate in weekly algorithmic challenges</li>
+                <li>Get feedback on your solutions</li>
+                <li>Learn from other community members</li>
+                <li>Stay updated with the latest tech trends</li>
+                <li>Network with like-minded individuals</li>
+              </ul>
+              <a href="https://discord.com/invite/wXd34sJQ8j" target="_blank" rel="noopener noreferrer" 
+                 class="join-button inline-flex items-center px-6 py-3 rounded-full">
+                <i data-lucide="disc" class="w-5 h-5 mr-2"></i>
+                Join Our Discord
+              </a>
+            </div>
+          </div>
+
+          <!-- Current Challenge -->
+          <div class="challenge-box rounded-lg p-8">
+            <div class="challenge-content">
+              <h2 class="text-3xl font-bold mb-6 text-white">This Week's Challenge</h2>
+              
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-white">Problem Statement</h3>
+                <p class="text-white mb-4">
+                  Given an array of integers, find the maximum sum of a contiguous subarray. 
+                  A subarray is a contiguous part of the array.
+                </p>
+                <div class="code-block mb-4">
+                  <p class="font-mono">Input: [-2, 1, -3, 4, -1, 2, 1, -5, 4]</p>
+                  <p class="font-mono">Output: 6</p>
+                  <p class="font-mono">Explanation: [4, -1, 2, 1] has the largest sum = 6</p>
+                </div>
+              </div>
+
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-white">Constraints</h3>
+                <ul class="list-disc list-inside space-y-2 text-white">
+                  <li>1 ≤ nums.length ≤ 10^5</li>
+                  <li>-10^4 ≤ nums[i] ≤ 10^4</li>
+                </ul>
+              </div>
+
+              <a href="https://discord.com/invite/wXd34sJQ8j" target="_blank" rel="noopener noreferrer" 
+                 class="join-button inline-flex items-center justify-center w-full px-6 py-3 rounded-full">
+                <i data-lucide="disc" class="w-5 h-5 mr-2"></i>
+                Join Discord to Solve
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-black/50 border-t border-[#00ff9d]/20 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto text-center text-gray-400">
+        <p>© 2024 CS Connect Pakistan. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html> 

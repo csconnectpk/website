@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Connect Pakistan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen text-white">
+    <!-- Cyber Background -->
+    <div class="cyber-background">
+      <div class="neon-line"></div>
+      <div class="neon-line"></div>
+      <div class="neon-line"></div>
+      <div class="neon-line"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm border-b border-[#00ff9d]/20">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <a href="https://forms.gle/tgwZeBg6YTqRURjE8" target="_blank" rel="noopener noreferrer" 
+               class="register-button inline-flex items-center px-4 py-2 rounded-full text-sm font-bold">
+              <i data-lucide="arrow-right" class="w-4 h-4 mr-2"></i>
+              Register
+            </a>
+            <a href="index.html" class="flex items-center space-x-2 text-[#00ff9d] hover:text-[#00ffff] transition-colors">
+              <img src="favicon.jpg" alt="Logo" class="h-8 w-8">
+              <span class="font-bold">CS Connect</span>
+            </a>
+          </div>
+          <div class="hidden md:flex space-x-4">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#join" class="nav-link">Join Us</a>
+            <a href="#challenges" class="nav-link">Challenges</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+          <div class="md:hidden">
+            <button class="mobile-menu-button p-2 text-[#00ff9d] hover:text-[#00ffff]">
+              <i data-lucide="menu"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div class="mobile-menu hidden md:hidden bg-black/90 backdrop-blur-sm">
+        <div class="px-4 py-2 space-y-2">
+          <a href="#home" class="block nav-link">Home</a>
+          <a href="#about" class="block nav-link">About</a>
+          <a href="#join" class="block nav-link">Join Us</a>
+          <a href="#challenges" class="block nav-link">Challenges</a>
+          <a href="#contact" class="block nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10"></div>
+      <div id="hero-bg" class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center"></div>
+      <div class="relative z-20 text-center px-4">
+        <img src="favicon.jpg" alt="CS Connect Logo" class="w-32 h-32 mx-auto mb-8 animate-float">
+        <h1 class="text-6xl font-bold mb-4 text-white animate-fade-in-up">
+          CS Connect Pakistan
+        </h1>
+        <p class="text-xl mb-8 text-gray-300 animate-fade-in-up delay-100">Connecting Pakistani Tech Enthusiasts</p>
+        <i data-lucide="chevron-down" class="animate-bounce w-8 h-8 mx-auto text-[#00ffff]"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center text-white animate-fade-in-up">
+          Why Join Our Community?
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="feature-card p-6 rounded-lg bg-black/50 backdrop-blur-sm border border-opacity-20 hover:border-opacity-100 transition-all duration-300" style="border-color: #00ff9d">
+            <i data-lucide="users" class="w-12 h-12 mb-4" style="color: #00ff9d"></i>
+            <h3 class="text-xl font-semibold mb-2" style="color: #00ff9d">Community</h3>
+            <p class="text-gray-400">Join a thriving network of tech enthusiasts</p>
+          </div>
+          <div class="feature-card p-6 rounded-lg bg-black/50 backdrop-blur-sm border border-opacity-20 hover:border-opacity-100 transition-all duration-300" style="border-color: #00ffff">
+            <i data-lucide="brain" class="w-12 h-12 mb-4" style="color: #00ffff"></i>
+            <h3 class="text-xl font-semibold mb-2" style="color: #00ffff">Learning</h3>
+            <p class="text-gray-400">Access quality CS education resources</p>
+          </div>
+          <div class="feature-card p-6 rounded-lg bg-black/50 backdrop-blur-sm border border-opacity-20 hover:border-opacity-100 transition-all duration-300" style="border-color: #7000ff">
+            <i data-lucide="globe" class="w-12 h-12 mb-4" style="color: #7000ff"></i>
+            <h3 class="text-xl font-semibold mb-2" style="color: #7000ff">Network</h3>
+            <p class="text-gray-400">Connect with industry professionals</p>
+          </div>
+          <div class="feature-card p-6 rounded-lg bg-black/50 backdrop-blur-sm border border-opacity-20 hover:border-opacity-100 transition-all duration-300" style="border-color: #ff00ff">
+            <i data-lucide="rocket" class="w-12 h-12 mb-4" style="color: #ff00ff"></i>
+            <h3 class="text-xl font-semibold mb-2" style="color: #ff00ff">Growth</h3>
+            <p class="text-gray-400">Accelerate your tech career</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section id="join" class="py-20 px-4">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-6 text-white animate-fade-in-up">
+          Join Our Community
+        </h2>
+        <p class="text-xl text-gray-300 mb-12 animate-fade-in-up delay-100">
+          Join Pakistan's fastest-growing CS community and connect with fellow tech enthusiasts!
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <a href="https://discord.com/invite/wXd34sJQ8j" target="_blank" rel="noopener noreferrer" class="social-card p-6 rounded-lg">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png"
+                 alt="Discord"
+                 class="w-16 h-16 mx-auto mb-4 object-contain social-icon">
+            <h3 class="text-xl font-bold mb-2 text-white">Discord</h3>
+            <p class="text-white">Join our active Discord community</p>
+          </a>
+          <a href="https://chat.whatsapp.com/EMAtD6mP9YP4L1hlGUIdQ1" target="_blank" rel="noopener noreferrer" class="social-card p-6 rounded-lg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                 alt="WhatsApp"
+                 class="w-16 h-16 mx-auto mb-4 object-contain social-icon">
+            <h3 class="text-xl font-bold mb-2 text-white">WhatsApp</h3>
+            <p class="text-white">Connect via WhatsApp group</p>
+          </a>
+          <a href="https://www.youtube.com/@csconnectpk" target="_blank" rel="noopener noreferrer" class="social-card p-6 rounded-lg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+                 alt="YouTube"
+                 class="w-16 h-16 mx-auto mb-4 object-contain social-icon">
+            <h3 class="text-xl font-bold mb-2 text-white">YouTube</h3>
+            <p class="text-white">Watch our educational content</p>
+          </a>
+          <a href="https://www.instagram.com/csconnectpk/#" target="_blank" rel="noopener noreferrer" class="social-card p-6 rounded-lg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+                 alt="Instagram"
+                 class="w-16 h-16 mx-auto mb-4 object-contain social-icon">
+            <h3 class="text-xl font-bold mb-2 text-white">Instagram</h3>
+            <p class="text-white">Follow us on Instagram</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="challenge-box rounded-lg p-8">
+          <div class="challenge-content">
+            <h2 class="text-3xl font-bold mb-6 challenge-title">Solve a Coding Problem</h2>
+            <p class="challenge-text mb-6">
+              Ready to test your skills? Join our weekly coding challenges and compete with other tech enthusiasts.
+              Each challenge comes with detailed problem statements, examples, and constraints to help you grow.
+            </p>
+            <a href="challenges.html" class="join-button inline-flex items-center justify-center w-full px-6 py-3 rounded-full">
+              <i data-lucide="code" class="w-5 h-5 mr-2"></i>
+              View Challenges
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+      <div class="max-w-2xl mx-auto">
+        <div class="challenge-box rounded-lg p-8">
+          <div class="challenge-content">
+            <h2 class="text-3xl font-bold mb-6 text-white">Contact Us</h2>
+            <form id="contactForm" class="space-y-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-white mb-2">Name</label>
+                <input type="text" id="name" name="name" required
+                       class="w-full px-4 py-2 rounded-lg bg-white border border-[#00ff9d]/20 text-black placeholder-gray-500 focus:outline-none focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d]">
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-white mb-2">Email</label>
+                <input type="email" id="email" name="email" required
+                       class="w-full px-4 py-2 rounded-lg bg-white border border-[#00ff9d]/20 text-black placeholder-gray-500 focus:outline-none focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d]">
+              </div>
+              <div>
+                <label for="subject" class="block text-sm font-medium text-white mb-2">Subject</label>
+                <input type="text" id="subject" name="subject" required
+                       class="w-full px-4 py-2 rounded-lg bg-white border border-[#00ff9d]/20 text-black placeholder-gray-500 focus:outline-none focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d]">
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium text-white mb-2">Message</label>
+                <textarea id="message" name="message" rows="4" required
+                          class="w-full px-4 py-2 rounded-lg bg-white border border-[#00ff9d]/20 text-black placeholder-gray-500 focus:outline-none focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d]"></textarea>
+              </div>
+              <button type="submit" class="join-button w-full inline-flex items-center justify-center px-6 py-3 rounded-full">
+                <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                Send Message
+              </button>
+            </form>
+            <div id="successMessage" class="hidden success-message mt-4">
+              <div class="flex items-center justify-center space-x-2">
+                <i data-lucide="check-circle" class="w-6 h-6 text-[#00ff9d]"></i>
+                <span class="text-[#00ff9d]">Your message has been sent successfully!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-black/50 border-t border-[#00ff9d]/20 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto text-center text-gray-400">
+        <p>© 2024 CS Connect Pakistan. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
