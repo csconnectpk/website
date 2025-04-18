@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Resources - CS Connect Pakistan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ---- particles.js container ---- */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      background-image: url("");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      z-index: -1;
+    }
+    
+    /* ---- reset ---- */
+    body {
+      margin: 0;
+      font: normal 75% Arial, Helvetica, sans-serif;
+    }
+    canvas {
+    display: inline-block; /* Makes vertical-align work */
+    vertical-align: bottom;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', sans-serif;
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background Animation */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(120deg, #09012d,#034870, #034870, #5f22a9);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      z-index: -2;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      z-index: 100;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 30px;
+      width: 20px;
+    }
+
+    .logo-container span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgb(253, 251, 251);
+    }
+
+    .text-nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 30px;
+    }
+
+    .text-nav a {
+      color: rgb(247, 245, 245);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .text-nav a:hover {
+      color: #012661;
+      transform: translateY(-2px);
+    }
+
+    .discord-btn {
+      color: rgb(254, 250, 250);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .discord-btn:hover {
+      background: rgba(247, 248, 248, 0.95);
+      color: rgb(9, 9, 9);
+      box-shadow: 0 0 10px rgba(90, 166, 171, 0.8), 0 0 20px rgba(90, 166, 171, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .discord-icon {
+      width: 25px;
+      height: 20px;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
+    }
+
+    .discord-btn:hover .discord-icon {
+      filter: none;
+    }
+
+    /* Main Content */
+    .about-section {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 20px 100px;
+      position: relative;
+    }
+
+    .about-content {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .waves {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/squairy-light.png');
+      opacity: 0.08;
+      z-index: -1;
+    }
+
+    .about-title {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
+      background: linear-gradient(to right, #ffffff, #a7c9ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Career Tips Container */
+    .career-tips-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+      border: 1px solid rgba(251, 249, 249, 0.902);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    .career-tips-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .career-tips-header h2 {
+      font-size: 2rem;
+      color: #f8f9fc;
+      margin-bottom: 10px;
+    }
+
+    .career-tips-header p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Tips Grid */
+    .tips-grid {
+      display: grid;
+      
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+    }
+
+    .tip-card {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.226);
+      border-color: rgba(167, 201, 255, 0.4);
+    }
+
+    .tip-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .tip-number {
+      width: 35px;
+      height: 35px;
+      background: white;
+      color: rgb(7, 7, 7);
+      font-size: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .tip-title {
+      font-size: 1.2rem;
+      color: #f4f5f8;
+    }
+
+    .tip-content {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      padding-left: 50px;
+    }
+
+    /* ===== ENHANCED UNIVERSITY BOX STYLES ===== */
+    .university-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 15px;
+      padding: 40px;
+      border: 1px solid rgba(251, 249, 249, 0.902);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+    
+    .university-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      border-color: rgba(167, 201, 255, 0.4);
+    }
+    
+    .university-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .university-icon {
+      font-size: 1.8rem;
+      color: #f8f9fa;
+      margin-right: 15px;
+    }
+    
+    .university-title {
+      font-size: 1.5rem;
+      color: white;
+      margin: 0;
+    }
+    
+    .university-location {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      color: #f2f3f4;
+    }
+    
+    .university-location i {
+      margin-right: 8px;
+    }
+    
+    .university-programs {
+      margin-top: 15px;
+    }
+    
+    .programs-title {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .programs-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .program-tag {
+      background:  rgba(114, 107, 107, 0.384);
+      color: #f4f5f7;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid  rgba(120, 110, 110, 0.384);
+    }
+    
+    /* ===== ENHANCED ROADMAP BOX STYLES ===== */
+    .roadmap-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 15px;
+      padding: 40px;
+      border: 1px solid rgba(251, 249, 249, 0.902);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+    
+    .roadmap-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      border-color: rgba(167, 201, 255, 0.4);
+    }
+    
+    .roadmap-icon {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .roadmap-box:hover .roadmap-icon {
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .roadmap-title {
+      font-size: 1.3rem;
+      color: white;
+      margin: 0 0 10px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .roadmap-box:hover .roadmap-title {
+      color: #ffffff;
+    }
+    
+    .roadmap-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 30px;
+      background: rgba(10, 10, 10, 0.1);
+      border: 1px solid rgba(21, 21, 21, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .roadmap-link:hover {
+      background: rgba(254, 255, 255, 0.3);
+      color: rgb(5, 5, 5);
+
+    }
+    
+    /* Grid layout for boxes */
+    .university-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+    
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: #f8f9fc;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #ffffff, #a7c9ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .section-header p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Section Containers */
+    .section-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 40px;
+      border: 1px solid rgba(251, 249, 249, 0.902);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    /* Footer Section */
+    .footer {
+      background: rgba(12, 104, 157, 0.7);
+      color: white;
+      padding: 40px 20px;
+      backdrop-filter: blur(5px);
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    
+    .footer-left {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    .footer-nav {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px 30px;
+    }
+    
+    .footer-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    
+    .footer-nav a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    
+    .footer-right h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: white;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    
+    .social-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: white;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .social-icon img {
+      width: 22px;
+      height: 22px;
+      transition: transform 0.3s ease;
+    }
+    
+    .social-icons a:hover .social-icon {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .social-icons a:hover .social-icon img {
+      transform: scale(1.1);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .navbar {
+        flex-direction: column;
+        padding: 15px;
+        height: auto;
+      }
+      
+      .text-nav {
+        position: static;
+        transform: none;
+        margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .about-content {
+        padding-top: 140px;
+      }
+      
+      .footer-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+      
+      .footer-right {
+        align-items: flex-start;
+        width: 100%;
+      }
+      
+      .social-icons {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px;
+      }
+      
+      .text-nav {
+        gap: 15px;
+      }
+      
+      .about-title, .section-header h2 {
+        font-size: 2.5rem;
+      }
+      
+      .career-tips-container, .section-container {
+        padding: 30px;
+      }
+      
+      .tips-grid, .university-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .text-nav {
+        gap: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .about-title, .section-header h2 {
+        font-size: 2rem;
+      }
+      
+      .about-section {
+        padding: 100px 15px 60px;
+      }
+      
+      .career-tips-container, .section-container {
+        padding: 20px;
+      }
+      
+      .tip-content {
+        padding-left: 0;
+      }
+      
+      .tip-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .tip-number {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles.js Container -->
+  <div id="particles-js"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <span>CS Connect Pakistan</span>
+    </div>
+
+    <div class="text-nav">
+      <a href="combine_csconnect.html">Home</a>
+      <a href="about_us_cs_connect.html">About Us</a>
+      <a href="#" class="active">Blogs</a>
+      <a href="resources_cs_connect.html">Resources</a>
+      <a href="combine_csconnect.html#contact">Contact Us</a>
+    </div>
+
+    <a href="https://discord.gg/gWyvnmSRRF" target="_blank" class="discord-btn">
+      <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" class="discord-icon">
+      Join Discord
+    </a>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="about-section">
+    <div class="waves"></div>
+    <div class="about-content">
+      <h1 class="about-title">Blogs</h1>
+      
+      <!-- Career Tips Section -->
+      <div class="career-tips-container">
+        <div class="career-tips-header">
+          <h2>Career Tips</h2>
+          <p>Practical tips for building a successful tech career in Pakistan</p>
+        </div>
+        
+        <div class="tips-grid">
+          <!-- Tip 1 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">1</div>
+              <h3 class="tip-title">Master the Fundamentals</h3>
+            </div>
+            <p class="tip-content">Start with strong basics in programming, data structures, algorithms, and databases. These are your foundation for problem-solving and technical interviews.</p>
+          </div>
+          
+          <!-- Tip 2 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">2</div>
+              <h3 class="tip-title">Build Real Projects</h3>
+            </div>
+            <p class="tip-content">Create personal or open-source projects to showcase your skills. These demonstrate your initiative, creativity, and technical abilities better than a resume can.</p>
+          </div>
+          
+          <!-- Tip 3 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">3</div>
+              <h3 class="tip-title">Start Interning Early</h3>
+            </div>
+            <p class="tip-content">Look for internships even in your first or second year. Early exposure gives you a practical understanding of the industry and improves your resume for future roles.</p>
+          </div>
+          
+          <!-- Tip 4 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">4</div>
+              <h3 class="tip-title">Learn Version Control (Git)</h3>
+            </div>
+            <p class="tip-content">Git and GitHub are essential tools in almost every tech job. They help you collaborate on code and contribute to open-source projects.</p>
+          </div>
+          
+          <!-- Tip 5 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">5</div>
+              <h3 class="tip-title">Explore Different Domains</h3>
+            </div>
+            <p class="tip-content">Don't limit yourself. Try web development, app development, AI/ML, cybersecurity, DevOps, and more. You'll discover what you truly enjoy and where you excel.</p>
+          </div>
+          
+          <!-- Tip 6 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">6</div>
+              <h3 class="tip-title">Build a Strong Online Presence</h3>
+            </div>
+            <p class="tip-content">Create a professional LinkedIn profile, GitHub portfolio, and maybe a tech blog. Recruiters often check these when considering candidates.</p>
+          </div>
+          
+          <!-- Tip 7 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">7</div>
+              <h3 class="tip-title">Contribute to Open Source</h3>
+            </div>
+            <p class="tip-content">Contributing to open-source projects helps you learn from others, improve your code quality, and get noticed by global communities.</p>
+          </div>
+          
+          <!-- Tip 8 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">8</div>
+              <h3 class="tip-title">Attend Events & Competitions</h3>
+            </div>
+            <p class="tip-content">Join hackathons, coding competitions, and tech meetups. They boost confidence, improve networking, and teach teamwork under pressure.</p>
+          </div>
+          
+          <!-- Tip 9 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">9</div>
+              <h3 class="tip-title">Keep Learning New Tech</h3>
+            </div>
+            <p class="tip-content">Technology evolves fast. Stay updated with the latest tools, frameworks, and industry trends through newsletters, YouTube, and platforms like freeCodeCamp, Coursera, or Udemy.</p>
+          </div>
+          
+          <!-- Tip 10 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">10</div>
+              <h3 class="tip-title">Sharpen Soft Skills</h3>
+            </div>
+            <p class="tip-content">Communication, teamwork, time management, and leadership matter as much as technical skills. Practice public speaking and teamwork through group projects or student societies.</p>
+          </div>
+          
+          <!-- Tip 11 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">11</div>
+              <h3 class="tip-title">Get Comfortable with Public Speaking</h3>
+            </div>
+            <p class="tip-content">Presenting your ideas confidently sets you apart. Start with class presentations or explaining your project in front of peers.</p>
+          </div>
+          
+          <!-- Tip 12 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">12</div>
+              <h3 class="tip-title">Follow a Roadmap</h3>
+            </div>
+            <p class="tip-content">Use curated roadmaps for Web Development, Data Science, AI/ML, etc. to stay focused.</p>
+          </div>
+          
+          <!-- Tip 13 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">13</div>
+              <h3 class="tip-title">Create a Resume & Portfolio Early</h3>
+            </div>
+            <p class="tip-content">Don't wait until final year. Create a clean, professional resume and a personal website or Notion page to showcase your work.</p>
+          </div>
+          
+          <!-- Tip 14 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">14</div>
+              <h3 class="tip-title">Seek Mentorship</h3>
+            </div>
+            <p class="tip-content">Find mentors in your university or online. Their guidance can help you avoid mistakes and fast-track your growth.</p>
+          </div>
+          
+          <!-- Tip 15 -->
+          <div class="tip-card">
+            <div class="tip-header">
+              <div class="tip-number">15</div>
+              <h3 class="tip-title">Stay Curious & Be Patient</h3>
+            </div>
+            <p class="tip-content">Career growth takes time. Stay curious, keep building, and remember — consistency beats intensity.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- University Selection Section -->
+      <div class="section-container">
+        <div class="section-header">
+          <h2>University Selection</h2>
+          <p>Pakistan offers several excellent institutions for technology education. Here are the top universities for Computer Science/Engineering:</p>
+        </div>
+        
+        <div class="university-grid">
+          <!-- University Box 1 -->
+          <div class="university-box">
+            <div class="university-header">
+              <i class="fas fa-graduation-cap university-icon"></i>
+              <h3 class="university-title">NUST (SEECS)</h3>
+            </div>
+            <div class="university-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Islamabad</span>
+            </div>
+            <div class="university-programs">
+              <div class="programs-title">Programs Offered</div>
+              <div class="programs-list">
+                <span class="program-tag">Computer Science</span>
+                <span class="program-tag">Software Engineering</span>
+                <span class="program-tag">Artificial Intelligence</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- University Box 2 -->
+          <div class="university-box">
+            <div class="university-header">
+              <i class="fas fa-graduation-cap university-icon"></i>
+              <h3 class="university-title">FAST-NUCES</h3>
+            </div>
+            <div class="university-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Islamabad, Lahore, Karachi, Peshawar</span>
+            </div>
+            <div class="university-programs">
+              <div class="programs-title">Programs Offered</div>
+              <div class="programs-list">
+                <span class="program-tag">Computer Science</span>
+                <span class="program-tag">Software Engineering</span>
+                <span class="program-tag">Artificial Intelligence</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- University Box 3 -->
+          <div class="university-box">
+            <div class="university-header">
+              <i class="fas fa-graduation-cap university-icon"></i>
+              <h3 class="university-title">COMSATS</h3>
+            </div>
+            <div class="university-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Islamabad, Lahore, Wah</span>
+            </div>
+            <div class="university-programs">
+              <div class="programs-title">Programs Offered</div>
+              <div class="programs-list">
+                <span class="program-tag">Computer Science</span>
+                <span class="program-tag">Software Engineering</span>
+                <span class="program-tag">Information Technology</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- University Box 4 -->
+          <div class="university-box">
+            <div class="university-header">
+              <i class="fas fa-graduation-cap university-icon"></i>
+              <h3 class="university-title">PIEAS</h3>
+            </div>
+            <div class="university-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Islamabad</span>
+            </div>
+            <div class="university-programs">
+              <div class="programs-title">Programs Offered</div>
+              <div class="programs-list">
+                <span class="program-tag">Computer Science</span>
+                <span class="program-tag">Information Security</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- University Box 5 -->
+          <div class="university-box">
+            <div class="university-header">
+              <i class="fas fa-graduation-cap university-icon"></i>
+              <h3 class="university-title">UET Lahore/Taxila</h3>
+            </div>
+            <div class="university-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Lahore / Taxila</span>
+            </div>
+            <div class="university-programs">
+              <div class="programs-title">Programs Offered</div>
+              <div class="programs-list">
+                <span class="program-tag">Computer Science</span>
+                <span class="program-tag">Software Engineering</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- University Box 6 -->
+          <div class="university-box">
+            <div class="university-header">
+              <i class="fas fa-graduation-cap university-icon"></i>
+              <h3 class="university-title">GIKI</h3>
+            </div>
+            <div class="university-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Topi</span>
+            </div>
+            <div class="university-programs">
+              <div class="programs-title">Programs Offered</div>
+              <div class="programs-list">
+                <span class="program-tag">Computer Science</span>
+                <span class="program-tag">Software Engineering</span>
+                <span class="program-tag">Artificial Intelligence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <p style="text-align: center; color: rgba(255,255,255,0.7); margin-top: 20px;"><strong>Note:</strong> This list is not ranked. Selection depends on your preferences, budget, and location.</p>
+      </div>
+
+      <!-- Roadmaps Section -->
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Detailed Career Roadmaps</h2>
+          <p>Explore these comprehensive roadmaps for various tech specializations:</p>
+        </div>
+        
+        <div class="roadmap-grid">
+          <!-- Roadmap Box 1 -->
+          <div class="roadmap-box">
+            <i class="fas fa-laptop-code roadmap-icon"></i>
+            <h3 class="roadmap-title">Computer Science</h3>
+            <a href="https://roadmap.sh/computer-science" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 2 -->
+          <div class="roadmap-box">
+            <i class="fab fa-linux roadmap-icon"></i>
+            <h3 class="roadmap-title">Linux</h3>
+            <a href="https://roadmap.sh/linux" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 3 -->
+          <div class="roadmap-box">
+            <i class="fas fa-file-code roadmap-icon"></i>
+            <h3 class="roadmap-title">C++</h3>
+            <a href="https://roadmap.sh/cpp" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 4 -->
+          <div class="roadmap-box">
+            <i class="fab fa-java roadmap-icon"></i>
+            <h3 class="roadmap-title">Java</h3>
+            <a href="https://roadmap.sh/java" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 5 -->
+          <div class="roadmap-box">
+            <i class="fab fa-python roadmap-icon"></i>
+            <h3 class="roadmap-title">Python</h3>
+            <a href="https://roadmap.sh/python" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 6 -->
+          <div class="roadmap-box">
+            <i class="fab fa-js-square roadmap-icon"></i>
+            <h3 class="roadmap-title">JavaScript</h3>
+            <a href="https://roadmap.sh/javascript" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 7 -->
+          <div class="roadmap-box">
+            <i class="fab fa-react roadmap-icon"></i>
+            <h3 class="roadmap-title">React</h3>
+            <a href="https://roadmap.sh/react" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 8 -->
+          <div class="roadmap-box">
+            <i class="fab fa-angular roadmap-icon"></i>
+            <h3 class="roadmap-title">Angular</h3>
+            <a href="https://roadmap.sh/angular" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 9 -->
+          <div class="roadmap-box">
+            <i class="fas fa-database roadmap-icon"></i>
+            <h3 class="roadmap-title">SQL</h3>
+            <a href="https://roadmap.sh/sql" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 10 -->
+          <div class="roadmap-box">
+            <i class="fas fa-gamepad roadmap-icon"></i>
+            <h3 class="roadmap-title">Game Developer</h3>
+            <a href="https://roadmap.sh/game-developer" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 11 -->
+          <div class="roadmap-box">
+            <i class="fas fa-shield-alt roadmap-icon"></i>
+            <h3 class="roadmap-title">Cyber Security</h3>
+            <a href="https://roadmap.sh/cyber-security" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+          
+          <!-- Roadmap Box 12 -->
+          <div class="roadmap-box">
+            <i class="fas fa-brain roadmap-icon"></i>
+            <h3 class="roadmap-title">AI Data Scientist</h3>
+            <a href="https://roadmap.sh/ai-data-scientist" target="_blank" class="roadmap-link">View Roadmap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="waves"></div>
+  </section>
+
+ 
+  <!-- Particles.js Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Initialize particles.js
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+              "enable": false,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 40,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 40,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 200,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
+</body>
+</html>

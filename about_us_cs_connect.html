@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - CS Connect Pakistan</title>
+  <style>
+    /* ---- particles.js container ---- */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      background-image: url("");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      z-index: -1;
+    }
+    
+    /* ---- reset ---- */
+    body {
+      margin: 0;
+      font: normal 75% Arial, Helvetica, sans-serif;
+    }
+    canvas {
+    display: inline-block; /* Makes vertical-align work */
+    vertical-align: bottom;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', sans-serif;
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(120deg,  #09012d,#034870, #034870, #5f22a9);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      z-index: -2;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      z-index: 100;
+    }
+
+    /* cs connect pakistan */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 30px;
+      width: 20px;
+    }
+
+    .logo-container span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgb(253, 251, 251);
+    }
+
+    /* Navigation links*/
+    .text-nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 30px;
+    }
+
+    .text-nav a {
+      color: rgb(247, 245, 245);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .text-nav a:hover {
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Discord button */
+    .discord-btn {
+      color: rgb(254, 250, 250);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .discord-btn:hover {
+      background: rgba(247, 248, 248, 0.95);
+      color: rgb(9, 9, 9);
+      box-shadow: 0 0 10px rgba(90, 166, 171, 0.8), 0 0 20px rgba(90, 166, 171, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .discord-icon {
+      width: 25px;
+      height: 20px;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
+    }
+
+    .discord-btn:hover .discord-icon {
+      filter: none;
+    }
+
+    /* About Us Content */
+    .about-section {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 20px 100px;
+      position: relative;
+    }
+
+    .about-content {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .waves {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/squairy-light.png');
+      opacity: 0.08;
+      z-index: -1;
+    }
+
+    .about-title {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
+      background: linear-gradient(to right, #ffffff, #a7c9ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .mission-vision {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .mission-box, .vision-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      width: 45%;
+      min-width: 300px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .mission-box h2, .vision-box h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #a7c9ff;
+    }
+
+    .mission-box p, .vision-box p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #e0f7fa;
+    }
+
+    .team-section {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .team-member {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(167, 201, 255, 0.3);
+    }
+
+    .member-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 3px solid rgba(167, 201, 255, 0.5);
+    }
+
+    .member-name {
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    .member-role {
+      color: #a7c9ff;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .member-bio {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #e0f7fa;
+    }
+
+    .values-section {
+      margin: 60px 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .value-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 25px 20px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #a7c9ff;
+    }
+
+    .value-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .value-desc {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #e0f7fa;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .navbar {
+        flex-direction: column;
+        padding: 15px;
+        height: auto;
+      }
+      
+      .text-nav {
+        position: static;
+        transform: none;
+        margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .about-content {
+        padding-top: 140px;
+      }
+      
+      .mission-box, .vision-box {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px;
+      }
+      
+      .text-nav {
+        gap: 15px;
+      }
+      
+      .about-title {
+        font-size: 2.5rem;
+      }
+      
+      .mission-box, .vision-box {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .text-nav {
+        gap: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .about-title {
+        font-size: 2rem;
+      }
+      
+      .about-section {
+        padding: 100px 15px 60px;
+      }
+      
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles.js Container -->
+  <div id="particles-js"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <span>CS Connect Pakistan</span>
+    </div>
+
+    <div class="text-nav">
+      <li><a href="combine_csconnect.html">Home</a></li>
+          <a href="#" class="active">About Us</a>
+          <a href="blogs_cs_connect.html">Blogs</a>
+          <a href="resources_cs_connect.html">Resources</a>
+          <a href="combine_csconnect.html#contact">Contact Us</a>
+    </div>
+
+    <a href="https://discord.gg/gWyvnmSRRF" target="_blank" class="discord-btn">
+      <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" class="discord-icon">
+      Join Discord
+    </a>
+  </nav>
+
+  <!-- About Us Section -->
+  <section class="about-section">
+    <div class="waves"></div>
+    <div class="about-content">
+      <h1 class="about-title">About Us</h1>
+      
+      <div class="mission-vision">
+        <div class="mission-box">
+          <h2>Our Mission</h2>
+          <p>Our mission at CS Connect Pakistan is to empower and unite computer science students, enthusiasts, and
+             professionals across Pakistan by providing an inclusive digital platform for collaboration, mentorship,
+              learning, and career growth. We aim to build a strong tech community through open knowledge sharing, 
+              interactive sessions, and access to helpful resources—bridging gaps and fostering innovation in the 
+              world of technology.</p>
+        </div>
+        
+        <div class="vision-box">
+          <h2>Our Vision</h2>
+          <p>To become Pakistan's leading digital hub for computer science collaboration—where students, developers,
+             and innovators connect, grow, and lead the future of technology. We envision a thriving ecosystem that nurtures talent, sparks creativity, and drives technological advancement across the nation and beyond.</p>
+        </div>
+      </div>
+      
+      <div class="team-section">
+        <h2>Meet Our Team</h2>
+        <p>The passionate individuals driving CS Connect Pakistan forward</p>
+        
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="https://img.icons8.com/fluency/96/user-male-circle.png" alt="Team Member" class="member-img">
+            <h3 class="member-name">Azan Waseem</h3>
+            <p class="member-role">Founder</p>
+            <p class="member-bio">Computer Science student at FAST NUCES, Islamabad. </p>
+          </div>
+          
+          <div class="team-member">
+            <img src="https://img.icons8.com/fluency/96/user-male-circle.png" alt="Team Member" class="member-img">
+            <h3 class="member-name">Talha Asghar</h3>
+            <p class="member-role">Community Manager</p>
+            <p class="member-bio">Sr. Software Engineer | Backend / AI, ML & DL | Gold Medalist in BSCS | MSCS (IIS) - NUST</p>
+          </div>
+          
+          <div class="team-member">
+            <img src="https://img.icons8.com/fluency/96/user-male-circle.png" alt="Team Member" class="member-img">
+            <h3 class="member-name">Siraj Qazi</h3>
+            <p class="member-role">Community Manager</p>
+            <p class="member-bio">Senior Data Scientist @ Seeloz, Inc. | Reinforcement Learning + GenAI | Python/C++20</p>
+           
+          </div>
+          
+          <div class="team-member">
+            <img src="https://img.icons8.com/fluency/96/user-male-circle.png" alt="Team Member" class="member-img">
+            <h3 class="member-name">Khawaja Muhammad Owais </h3>
+            <p class="member-role">Technical Lead</p>
+            <p class="member-bio">Under grad Data science student at FAST NUCES Islamabad.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="values-section">
+        <h2>Our Core Values</h2>
+        <p>The principles that guide everything we do</p>
+        
+        <div class="values-grid">
+          <div class="value-card">
+            <img src="https://cdn-icons-png.flaticon.com/128/17898/17898900.png" style="width: 100px; height: 100px;" alt="Idea Icon">
+            <h3 class="value-title">Community</h3>
+            <p class="value-desc">We believe in the power of bringing people together to achieve more collectively.</p>
+          </div>
+          
+          <div class="value-card">
+            <img src="https://cdn-icons-png.flaticon.com/128/5190/5190582.png"style="width: 100px; height: 100px;" alt="Idea Icon">
+            <h3 class="value-title">Learning</h3>
+            <p class="value-desc">Continuous growth and knowledge sharing are at our core.</p>
+          </div>
+          
+          <div class="value-card">
+            <img src="https://cdn-icons-png.flaticon.com/128/9186/9186528.png"style="width: 100px; height: 100px;" alt="Idea Icon">
+            <h3 class="value-title">Collaboration</h3>
+            <p class="value-desc">We achieve more when we work together across disciplines and institutions.</p>
+          </div>
+          
+          <div class="value-card">
+            <img src="https://cdn-icons-png.flaticon.com/128/2539/2539868.png"style="width: 100px; height: 100px;" alt="Idea Icon">
+            <h3 class="value-title">Innovation</h3>
+            <p class="value-desc">We encourage creative thinking and novel solutions to problems.</p>
+          </div>
+          
+          <div class="value-card">
+            <img src="https://cdn-icons-png.flaticon.com/128/2422/2422760.png"style="width: 100px; height: 100px;" alt="Idea Icon">
+            <h3 class="value-title">Impact</h3>
+            <p class="value-desc">We measure success by the positive change we create in members' lives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="waves"></div>
+  </section>
+
+  <!-- Particles.js Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Initialize particles.js
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+              "enable": false,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 40,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 40,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 200,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
+</body>
+</html>

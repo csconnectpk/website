@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Resources - CS Connect Pakistan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ---- particles.js container ---- */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      background-image: url("");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      z-index: -1;
+    }
+    
+    /* ---- reset ---- */
+    body {
+      margin: 0;
+      font: normal 75% Arial, Helvetica, sans-serif;
+    }
+    canvas {
+    display: inline-block; /* Makes vertical-align work */
+    vertical-align: bottom;
+}
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', sans-serif;
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background  */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(120deg, #09012d,#034870, #034870, #5f22a9);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      z-index: -2;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      z-index: 100;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 30px;
+      width: 20px;
+    }
+
+    .logo-container span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgb(253, 251, 251);
+    }
+
+    .text-nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 30px;
+    }
+
+    .text-nav a {
+      color: rgb(247, 245, 245);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .text-nav a:hover {
+      color: #012661;
+      transform: translateY(-2px);
+    }
+
+    .discord-btn {
+      color: rgb(254, 250, 250);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .discord-btn:hover {
+      background: rgba(247, 248, 248, 0.95);
+      color: rgb(9, 9, 9);
+      box-shadow: 0 0 10px rgba(90, 166, 171, 0.8), 0 0 20px rgba(90, 166, 171, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .discord-icon {
+      width: 25px;
+      height: 20px;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
+    }
+
+    .discord-btn:hover .discord-icon {
+      filter: none;
+    }
+
+    /* Main Content */
+    .about-section {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 20px 100px;
+      position: relative;
+    }
+
+    .about-content {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .waves {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/squairy-light.png');
+      opacity: 0.08;
+      z-index: -1;
+    }
+
+    .about-title {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
+      background: linear-gradient(to right, #ffffff, #a7c9ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Section Containers */
+    .section-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      border-radius: 15px;
+      padding: 40px;
+      border: 1px solid rgba(251, 249, 249, 0.902);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: #f8f9fc;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #ffffff, #ecf1f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .section-header p {
+      font-size: 1.1rem;
+      color: rgba(250, 249, 249, 0.85);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Resource Grid */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+    }
+
+    /* YouTube Lectures Cards */
+    .lecture-card {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .lecture-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.226);
+      border-color: rgba(167, 201, 255, 0.4);
+    }
+
+    .lecture-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .lecture-icon {
+      font-size: 1.8rem;
+      color: #fefefe;
+      margin-right: 15px;
+    }
+
+    .lecture-title {
+      font-size: 1.3rem;
+      color: #f4f5f8;
+      margin: 0;
+    }
+
+    .lecture-content {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 15px;
+    }
+
+    .lecture-link {
+      display: inline-block;
+      color: #fcfdfe;
+      font-size:15px;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 30px;
+      background: rgba(7, 7, 7, 0.384);
+      border: 1px solid rgba(7, 7, 7, 0.384);
+      transition: all 0.3s ease;
+    }
+
+    .lecture-link:hover {
+      background: rgb(251, 252, 254);
+      color: rgb(14, 1, 1);
+    }
+
+    /* Category Headers */
+    .category-header {
+      font-size: 1.5rem;
+      color: #f3f4f6;
+      margin: 30px 0 15px 0;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(167, 201, 255, 0.3);
+    }
+
+    /* Courses Cards */
+    .course-card {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.226);
+      border-color: rgba(167, 201, 255, 0.4);
+    }
+
+    .course-title {
+      font-size: 1.3rem;
+      color: #f4f5f8;
+      margin-bottom: 10px;
+    }
+
+    .course-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 15px;
+    }
+
+    .course-platform {
+      display: flex;
+      align-items: center;
+      color: #dde0e4;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .course-platform i {
+      margin-right: 8px;
+    }
+
+    .course-link {
+      display: inline-block;
+      color: #f4f6f8;
+      font-size: 15px;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 30px;
+      background: rgba(7, 7, 7, 0.384);
+      border: 1px solidrgba(7, 7, 7, 0.384);
+      transition: all 0.3s ease;
+    }
+
+    .course-link:hover {
+      background: rgb(251, 252, 254);
+      color: rgb(14, 1, 1);
+    }
+
+    /* Internship Cards */
+    .internship-card {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .internship-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.226);
+      border-color: rgba(167, 201, 255, 0.4);
+    }
+
+    .internship-number {
+      width: 35px;
+      height: 35px;
+      background: white;
+      color: rgb(14, 13, 13);
+      font-size: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .internship-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .internship-title {
+      font-size: 1.3rem;
+      color: #f4f5f8;
+      margin: 0;
+    }
+
+    .internship-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 15px;
+      padding-left: 50px;
+    }
+
+    .internship-link {
+      display: inline-block;
+      color: #f3f6fa;
+      font-size: 15px;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 30px;
+      background: rgba(7, 7, 7, 0.384);
+      border: 1px solid rgba(7, 7, 7, 0.384);
+      transition: all 0.3s ease;
+      margin-left: 50px;
+    }
+
+    .internship-link:hover {
+      background: rgb(251, 252, 254);
+      color: rgb(14, 1, 1);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .navbar {
+        flex-direction: column;
+        padding: 15px;
+        height: auto;
+      }
+      
+      .text-nav {
+        position: static;
+        transform: none;
+        margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .about-content {
+        padding-top: 140px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px;
+      }
+      
+      .text-nav {
+        gap: 15px;
+      }
+      
+      .about-title, .section-header h2 {
+        font-size: 2.5rem;
+      }
+      
+      .section-container {
+        padding: 30px;
+      }
+      
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .text-nav {
+        gap: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .about-title, .section-header h2 {
+        font-size: 2rem;
+      }
+      
+      .about-section {
+        padding: 100px 15px 60px;
+      }
+      
+      .section-container {
+        padding: 20px;
+      }
+      
+      .internship-description {
+        padding-left: 0;
+      }
+      
+      .internship-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .internship-number {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+      
+      .internship-link {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles.js Container -->
+  <div id="particles-js"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <span>CS Connect Pakistan</span>
+    </div>
+
+    <div class="text-nav">
+      <a href="combine_csconnect.html">Home</a>
+      <a href="about_us_cs_connect.html">About Us</a>
+      <a href="Blogs_cs_connect.html">Blogs</a>
+      <a href="resources_cs_connect.html" class="active">Resources</a>
+      <a href="combine_csconnect.html#contact">Contact Us</a>
+    </div>
+
+    <a href="https://discord.gg/gWyvnmSRRF" target="_blank" class="discord-btn">
+      <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" class="discord-icon">
+      Join Discord
+    </a>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="about-section">
+    <div class="waves"></div>
+    <div class="about-content">
+      <h1 class="about-title">Resources</h1>
+      
+      <!-- YouTube Lectures Section -->
+      <div class="section-container">
+        <div class="section-header">
+          <h2>YouTube Lectures</h2>
+          <p>High-quality video lectures and tutorials for computer science and software engineering</p>
+        </div>
+        
+        <h3 class="category-header">Core Computer Science & Software Engineering</h3>
+        <div class="resource-grid">
+          <!-- Lecture 1 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-laptop-code lecture-icon"></i>
+              <h3 class="lecture-title">Harvard CS50  Full Computer Science Course</h3>
+            </div>
+            <p class="lecture-content">A comprehensive introduction to computer science, covering algorithms, data structures, and more.</p>
+            <a href="https://www.youtube.com/watch?v=8mAITcNt710" target="_blank" class="lecture-link">Watch here</a>
+          </div>
+          
+          <!-- Lecture 2 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-book-open lecture-icon"></i>
+              <h3 class="lecture-title">Structure and Interpretation of Computer Programs (SICP)</h3>
+            </div>
+            <p class="lecture-content">Classic lectures by Sussman and Abelson, foundational for understanding programming concepts.</p>
+            <a href="https://www.reddit.com/r/learnprogramming/comments/1jqy1q/where_can_i_find_the_video_lectures_for/" target="_blank" class="lecture-link">Watch here</a>
+          </div>
+          
+          <!-- Lecture 3 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-code lecture-icon"></i>
+              <h3 class="lecture-title">Software Engineering Full Course</h3>
+            </div>
+            <p class="lecture-content">A semester-long course covering software development life cycles, design patterns, and project management.</p>
+            <a href="https://www.youtube.com/watch?v=O753uuutqH8" target="_blank" class="lecture-link">Watch here</a>
+          </div>
+          
+          <!-- Lecture 4 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-chalkboard-teacher lecture-icon"></i>
+              <h3 class="lecture-title">Jenny's Lectures CS/IT</h3>
+            </div>
+            <p class="lecture-content">Tutorials focused on programming, data structures, and algorithms, tailored for engineering students.</p>
+            <a href="https://www.youtube.com/c/JennyslecturesCSITNETJRF" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+          
+          <!-- Lecture 5 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-desktop lecture-icon"></i>
+              <h3 class="lecture-title">Computer Science Lessons</h3>
+            </div>
+            <p class="lecture-content">A series introducing object-oriented programming using Visual Basic.NET, suitable for beginners.</p>
+            <a href="https://www.youtube.com/user/ComputerScienceLessons" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+        </div>
+        <br><br>
+        <h3 class="category-header"> Frontend Development</h3>
+        <div class="resource-grid">
+          <!-- Lecture 6 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fab fa-html5 lecture-icon"></i>
+              <h3 class="lecture-title">Traversy Media</h3>
+            </div>
+            <p class="lecture-content">Offers tutorials on HTML, CSS, JavaScript, React, Angular, and more, catering to all skill levels.</p>
+            <a href="https://www.youtube.com/c/TraversyMedia" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+          
+          <!-- Lecture 7 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fab fa-js lecture-icon"></i>
+              <h3 class="lecture-title">The Net Ninja</h3>
+            </div>
+            <p class="lecture-content">Provides comprehensive tutorials on modern frontend frameworks and tools.</p>
+            <a href="https://www.youtube.com/c/TheNetNinja" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+          
+          <!-- Lecture 8 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fab fa-react lecture-icon"></i>
+              <h3 class="lecture-title">Codevolution</h3>
+            </div>
+            <p class="lecture-content">Focuses on React, Redux, and other frontend technologies with clear, concise tutorials.</p>
+            <a href="https://www.youtube.com/c/Codevolution" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+          
+          <!-- Lecture 9 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-graduation-cap lecture-icon"></i>
+              <h3 class="lecture-title">Frontend Web Development Bootcamp Course</h3>
+            </div>
+            <p class="lecture-content">A complete course covering HTML, CSS, JavaScript, and building real-world projects.</p>
+            <a href="https://www.youtube.com/watch?v=zJSY8tbf_ys" target="_blank" class="lecture-link">Watch here</a>
+          </div>
+          
+          <!-- Lecture 10 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-laptop-code lecture-icon"></i>
+              <h3 class="lecture-title">The Complete Frontend Development Course (150 Hours)</h3>
+            </div>
+            <p class="lecture-content">An extensive playlist designed for beginners to master frontend development from scratch.</p>
+            <a href="https://www.youtube.com/watch?v=QA0XpGhiz5w" target="_blank" class="lecture-link">Watch here</a>
+          </div>
+        </div>
+        <br><br>
+        <h3 class="category-header"> Backend Development</h3>
+        <div class="resource-grid">
+          <!-- Lecture 11 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-server lecture-icon"></i>
+              <h3 class="lecture-title">Back-End Development Playlist</h3>
+            </div>
+            <p class="lecture-content">Covers Node.js, Express, REST APIs, SQL, and more, ideal for beginners.</p>
+            <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jBcybHMTIia56aV21o2cZ8" target="_blank" class="lecture-link">Watch here</a>
+          </div>
+          
+          <!-- Lecture 12 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-code lecture-icon"></i>
+              <h3 class="lecture-title">Complete Backend Developer Course | Part 1</h3>
+            </div>
+            <p class="lecture-content">A Hindi-language course focusing on backend development concepts and practices.</p>
+            <a href="https://www.youtube.com/watch?v=ldws6VyANh0" target="_blank" class="lecture-link">Watch here</a>
+          </div>
+          
+          <!-- Lecture 13 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-project-diagram lecture-icon"></i>
+              <h3 class="lecture-title">Full Backend Development for Beginners  Project-Based Course</h3>
+            </div>
+            <p class="lecture-content">Learn to build backend applications through hands-on projects.</p>
+            <a href="https://www.youtube.com/watch?v=qwfE7fSVaZM" target="_blank" class="lecture-link">Watch here</a>
+          </div>
+          
+          <!-- Lecture 14 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-road lecture-icon"></i>
+              <h3 class="lecture-title">The Complete Backend Developer Roadmap</h3>
+            </div>
+            <p class="lecture-content">A step-by-step guide outlining the skills and technologies required for backend development.</p>
+            <a href="https://www.youtube.com/watch?v=oxrfvZ9JjXo" target="_blank" class="lecture-link">Watch here</a>
+          </div>
+        </div>
+        <br><br>
+        <h3 class="category-header"> Additional Resources</h3>
+        <div class="resource-grid">
+          <!-- Lecture 15 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-university lecture-icon"></i>
+              <h3 class="lecture-title">freeCodeCamp.org</h3>
+            </div>
+            <p class="lecture-content">Offers a vast collection of tutorials and courses on web development, data science, and more.</p>
+            <a href="https://www.youtube.com/c/Freecodecamp" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+          
+          <!-- Lecture 16 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-fire lecture-icon"></i>
+              <h3 class="lecture-title">Fireship</h3>
+            </div>
+            <p class="lecture-content">Provides concise and informative videos on web development, Firebase, and modern technologies.</p>
+            <a href="https://www.youtube.com/c/Fireship" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+          
+          <!-- Lecture 17 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-shield-alt lecture-icon"></i>
+              <h3 class="lecture-title">The Net Ninja</h3>
+            </div>
+            <p class="lecture-content">Features tutorials on a wide range of web development topics, including frontend and backend frameworks.</p>
+            <a href="https://www.youtube.com/c/TheNetNinja" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+          
+          <!-- Lecture 18 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-atom lecture-icon"></i>
+              <h3 class="lecture-title">Codevolution</h3>
+            </div>
+            <p class="lecture-content">Delivers tutorials on React, Redux, and other frontend technologies with clear explanations.</p>
+            <a href="https://www.youtube.com/c/Codevolution" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+          
+          <!-- Lecture 19 -->
+          <div class="lecture-card">
+            <div class="lecture-header">
+              <i class="fas fa-globe lecture-icon"></i>
+              <h3 class="lecture-title">Traversy Media</h3>
+            </div>
+            <p class="lecture-content">Covers full-stack web development tutorials, project-based learning, and industry insights.</p>
+            <a href="https://www.youtube.com/c/TraversyMedia" target="_blank" class="lecture-link">Visit channel</a>
+          </div>
+        </div>
+      </div>
+<br><br><br><br><br><br>
+      <!-- Courses Section -->
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Online Courses</h2>
+          <p>Structured learning paths from top universities and platforms</p>
+        </div>
+        
+        <h3 class="category-header">Core Computer Science & Software Engineering</h3>
+        <div class="resource-grid">
+          <!-- Course 1 -->
+          <div class="course-card">
+            <h3 class="course-title">CS50: Introduction to Computer Science by Harvard University</h3>
+            <p class="course-description">A comprehensive introduction to computer science fundamentals.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>edX</span>
+            </div>
+            <a href="https://www.edx.org/course/introduction-computer-science-harvardx-cs50x" target="_blank" class="course-link">View Course</a>
+          </div>
+          
+          <!-- Course 2 -->
+          <div class="course-card">
+            <h3 class="course-title">Software Engineering Specialization by University of Alberta (Coursera)</h3>
+            <p class="course-description">Covers software development life cycle, design patterns, and agile methodologies.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Coursera</span>
+            </div>
+            <a href="https://www.coursera.org/specializations/software-engineering" target="_blank" class="course-link">View Course</a>
+          </div>
+          
+          <!-- Course 3 -->
+          <div class="course-card">
+            <h3 class="course-title">MIT OpenCourseWare</h3>
+            <p class="course-description">Access to a vast range of MIT's computer science courses for free.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>MIT</span>
+            </div>
+            <a href="https://ocw.mit.edu/" target="_blank" class="course-link">View Courses</a>
+          </div>
+        </div>
+        <br><br>
+        <h3 class="category-header">Web Development (Front-End & Back-End)</h3>
+        <div class="resource-grid">
+          <!-- Course 4 -->
+          <div class="course-card">
+            <h3 class="course-title">freeCodeCamp</h3>
+            <p class="course-description">Offers interactive coding lessons and certifications in HTML, CSS, JavaScript, and more.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>freeCodeCamp</span>
+            </div>
+            <a href="https://www.freecodecamp.org/" target="_blank" class="course-link">View Courses</a>
+          </div>
+          
+          <!-- Course 5 -->
+          <div class="course-card">
+            <h3 class="course-title">Codecademy Web Development Courses</h3>
+            <p class="course-description">Learn to build websites and web applications with hands-on exercises.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Codecademy</span>
+            </div>
+            <a href="https://www.codecademy.com/catalog/subject/web-development" target="_blank" class="course-link">View Courses</a>
+          </div>
+          
+          <!-- Course 6 -->
+          <div class="course-card">
+            <h3 class="course-title">Great Learning Academy: Free Web Development Courses</h3>
+            <p class="course-description">Self-paced courses covering front-end and back-end development with certificates.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Great Learning</span>
+            </div>
+            <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/web-development" target="_blank" class="course-link">View Courses</a>
+          </div>
+        </div>
+        <br><br>
+        <h3 class="category-header"> Full Stack Development</h3>
+        <div class="resource-grid">
+          <!-- Course 7 -->
+          <div class="course-card">
+            <h3 class="course-title">IBM Full Stack Software Developer Professional Certificate (Coursera)</h3>
+            <p class="course-description">Comprehensive program covering front-end and back-end technologies.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Coursera</span>
+            </div>
+            <a href="https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer" target="_blank" class="course-link">View Course</a>
+          </div>
+          
+          <!-- Course 8 -->
+          <div class="course-card">
+            <h3 class="course-title">Become a Full Stack Developer Great Learning</h3>
+            <p class="course-description">Free course covering essential full-stack development skills with certification.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Great Learning</span>
+            </div>
+            <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/full-stack-development-for-beginners" target="_blank" class="course-link">View Course</a>
+          </div>
+        </div>
+        <br><br>
+        <h3 class="category-header">Artificial Intelligence & Machine Learning</h3>
+        <div class="resource-grid">
+          <!-- Course 9 -->
+          <div class="course-card">
+            <h3 class="course-title">AI For Everyone by Andrew Ng (Coursera)</h3>
+            <p class="course-description">Non-technical course explaining AI concepts and societal impact.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Coursera</span>
+            </div>
+            <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" class="course-link">View Course</a>
+          </div>
+          
+          <!-- Course 10 -->
+          <div class="course-card">
+            <h3 class="course-title">Machine Learning by Stanford University (Coursera)</h3>
+            <p class="course-description">In-depth course covering machine learning algorithms and applications.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Coursera</span>
+            </div>
+            <a href="https://www.coursera.org/learn/machine-learning" target="_blank" class="course-link">View Course</a>
+          </div>
+          
+          <!-- Course 11 -->
+          <div class="course-card">
+            <h3 class="course-title">Google's AI Training Courses</h3>
+            <p class="course-description">Free courses on AI and machine learning fundamentals.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Google</span>
+            </div>
+            <a href="https://ai.google/education/" target="_blank" class="course-link">View Courses</a>
+          </div>
+        </div>
+        <br><br>
+        <h3 class="category-header"> Data Science & Analytics</h3>
+        <div class="resource-grid">
+          <!-- Course 12 -->
+          <div class="course-card">
+            <h3 class="course-title">IBM Data Science Professional Certificate (Coursera)</h3>
+            <p class="course-description">Series of courses covering data science tools, methodologies, and applications.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Coursera</span>
+            </div>
+            <a href="https://www.coursera.org/professional-certificates/ibm-data-science" target="_blank" class="course-link">View Course</a>
+          </div>
+          
+          <!-- Course 13 -->
+          <div class="course-card">
+            <h3 class="course-title">Harvard's Data Science: Machine Learning (edX)</h3>
+            <p class="course-description">Focuses on machine learning techniques and data analysis.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>edX</span>
+            </div>
+            <a href="https://www.edx.org/course/data-science-machine-learning" target="_blank" class="course-link">View Course</a>
+          </div>
+        </div>
+        <br><br>
+        <h3 class="category-header">Cybersecurity</h3>
+        <div class="resource-grid">
+          <!-- Course 14 -->
+          <div class="course-card">
+            <h3 class="course-title">Introduction to Cyber Security Specialization (Coursera)</h3>
+            <p class="course-description">Covers fundamental concepts in cybersecurity.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Coursera</span>
+            </div>
+            <a href="https://www.coursera.org/specializations/intro-cyber-security" target="_blank" class="course-link">View Course</a>
+          </div>
+          
+          <!-- Course 15 -->
+          <div class="course-card">
+            <h3 class="course-title">Google IT Support Professional Certificate (Coursera)</h3>
+            <p class="course-description">Includes modules on security as part of IT support training.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Coursera</span>
+            </div>
+            <a href="https://www.coursera.org/professional-certificates/google-it-support" target="_blank" class="course-link">View Course</a>
+          </div>
+        </div>
+        <br><br>
+        <h3 class="category-header"> Coding Bootcamps & Platforms</h3>
+        <div class="resource-grid">
+          <!-- Course 16 -->
+          <div class="course-card">
+            <h3 class="course-title">App Academy Open</h3>
+            <p class="course-description">Free full-stack web development curriculum with project-based learning.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>App Academy</span>
+            </div>
+            <a href="https://open.appacademy.io/" target="_blank" class="course-link">View Platform</a>
+          </div>
+          
+          <!-- Course 17 -->
+          <div class="course-card">
+            <h3 class="course-title">The Odin Project</h3>
+            <p class="course-description">Comprehensive web development curriculum covering full-stack development.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>The Odin Project</span>
+            </div>
+            <a href="https://www.theodinproject.com/" target="_blank" class="course-link">View Platform</a>
+          </div>
+          
+          <!-- Course 18 -->
+          <div class="course-card">
+            <h3 class="course-title">Top Free Coding Bootcamps 2025</h3>
+            <p class="course-description">List of top free coding bootcamps offering various tech programs.</p>
+            <div class="course-platform">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Nucamp</span>
+            </div>
+            <a href="https://www.nucamp.co/blog/best-free-coding-bootcamps" target="_blank" class="course-link">View List</a>
+          </div>
+        </div>
+       <br><br> 
+        <h3 class="category-header"> YouTube Channels for Tech Learning</h3>
+        <div class="resource-grid">
+          <!-- Course 19 -->
+          <div class="course-card">
+            <h3 class="course-title">freeCodeCamp.org</h3>
+            <p class="course-description">Extensive tutorials on web development, data science, and more.</p>
+            <div class="course-platform">
+              <i class="fab fa-youtube"></i>
+              <span>YouTube</span>
+            </div>
+            <a href="https://www.youtube.com/c/Freecodecamp" target="_blank" class="course-link">Visit Channel</a>
+          </div>
+          
+          <!-- Course 20 -->
+          <div class="course-card">
+            <h3 class="course-title">Programming with Mosh</h3>
+            <p class="course-description">High-quality tutorials on various programming languages and frameworks.</p>
+            <div class="course-platform">
+              <i class="fab fa-youtube"></i>
+              <span>YouTube</span>
+            </div>
+            <a href="https://www.youtube.com/c/programmingwithmosh" target="_blank" class="course-link">Visit Channel</a>
+          </div>
+          
+          <!-- Course 21 -->
+          <div class="course-card">
+            <h3 class="course-title">Traversy Media</h3>
+            <p class="course-description">Web development tutorials and project-based learning.</p>
+            <div class="course-platform">
+              <i class="fab fa-youtube"></i>
+              <span>YouTube</span>
+            </div>
+            <a href="https://www.youtube.com/c/TraversyMedia" target="_blank" class="course-link">Visit Channel</a>
+          </div>
+          
+          <!-- Course 22 -->
+          <div class="course-card">
+            <h3 class="course-title">The Net Ninja</h3>
+            <p class="course-description">Comprehensive tutorials on web development technologies.</p>
+            <div class="course-platform">
+              <i class="fab fa-youtube"></i>
+              <span>YouTube</span>
+            </div>
+            <a href="https://www.youtube.com/c/TheNetNinja" target="_blank" class="course-link">Visit Channel</a>
+          </div>
+        </div>
+      </div>
+<br><br><br><br><br>
+      <!-- Internships Section -->
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Internship Resources</h2>
+          <p>Platforms and programs to help you find valuable internship opportunities</p>
+        </div>
+        
+        <h3 class="category-header">🇵🇰 Internship Platforms in Pakistan</h3>
+        <div class="resource-grid">
+          <!-- Internship 1 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">1</div>
+              <h3 class="internship-title">Rozee.pk</h3>
+            </div>
+            <p class="internship-description">Popular job portal in Pakistan with internship opportunities in tech companies.</p>
+            <a href="https://www.rozee.pk" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 2 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">2</div>
+              <h3 class="internship-title">Mustakbil.com</h3>
+            </div>
+            <p class="internship-description">Features internships in software houses and startups across Pakistan.</p>
+            <a href="https://www.mustakbil.com" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 3 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">3</div>
+              <h3 class="internship-title">Interns.pk</h3>
+            </div>
+            <p class="internship-description">A dedicated platform for students to find internships in Pakistan.</p>
+            <a href="https://www.interns.pk" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 4 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">4</div>
+              <h3 class="internship-title">CareerHelpPortal.com (HEC Internships)</h3>
+            </div>
+            <p class="internship-description">Lists fully funded internships and training programs like PSEB, NIP, HEC programs.</p>
+            <a href="https://careerhelpportal.com" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 5 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">5</div>
+              <h3 class="internship-title">BrightSpyre</h3>
+            </div>
+            <p class="internship-description">Offers internships from NGOs, tech companies, and government projects.</p>
+            <a href="https://www.brightspyre.com" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 6 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">6</div>
+              <h3 class="internship-title">LinkedIn (Search with Filters)</h3>
+            </div>
+            <p class="internship-description">Use filters: "Internship" + "Pakistan" + "Computer Science" for personalized results.</p>
+            <a href="https://www.linkedin.com/jobs" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 7 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">7</div>
+              <h3 class="internship-title">Pakistani Facebook Groups & Pages</h3>
+            </div>
+            <p class="internship-description">"Internships in Pakistan", "Pakistani Programmers", "CS/IT Jobs and Internships in Pakistan" - These communities often share local internship openings and remote opportunities.</p>
+            <a href="https://www.facebook.com/search/groups/?q=internships%20in%20pakistan" target="_blank" class="internship-link">Search Groups</a>
+          </div>
+        </div>
+        <br><br><br>
+        <h3 class="category-header"> International Internship Opportunities (Remote/Funded)</h3>
+        <div class="resource-grid">
+          <!-- Internship 8 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">1</div>
+              <h3 class="internship-title">Internshala (India & Remote)</h3>
+            </div>
+            <p class="internship-description">Offers many remote and paid internships in web dev, app dev, and AI.</p>
+            <a href="https://internshala.com" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 9 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">2</div>
+              <h3 class="internship-title">Forage Virtual Internships</h3>
+            </div>
+            <p class="internship-description">Free virtual internships from companies like Microsoft, Accenture, and JPMorgan.</p>
+            <a href="https://www.theforage.com" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 10 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">3</div>
+              <h3 class="internship-title">Google Summer of Code (GSoC)</h3>
+            </div>
+            <p class="internship-description">Students contribute to open-source projects and get mentorship + stipend.</p>
+            <a href="https://summerofcode.withgoogle.com" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 11 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">4</div>
+              <h3 class="internship-title">Microsoft Learn Student Ambassadors</h3>
+            </div>
+            <p class="internship-description">Not a traditional internship, but gives exposure, projects, and certifications.</p>
+            <a href="https://studentambassadors.microsoft.com" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 12 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">5</div>
+              <h3 class="internship-title">UNICEF, UNDP & WFP Internships</h3>
+            </div>
+            <p class="internship-description">Great for tech roles in NGOs & development projects.</p>
+            <a href="https://www.unicef.org/careers/internships" target="_blank" class="internship-link">Visit UNICEF</a>
+          </div>
+          
+          <!-- Internship 13 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">6</div>
+              <h3 class="internship-title">AI/ML Internships (DeepLearning.AI, Kaggle)</h3>
+            </div>
+            <p class="internship-description">Participate in competitions, build your profile, and apply for internships.</p>
+            <a href="https://www.deeplearning.ai" target="_blank" class="internship-link">Visit DeepLearning.AI</a>
+          </div>
+        </div>
+        
+        <h3 class="category-header"> Specialized Internships & Portals</h3>
+        <div class="resource-grid">
+          <!-- Internship 14 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">1</div>
+              <h3 class="internship-title">Turing (Remote Software Developer Jobs)</h3>
+            </div>
+            <p class="internship-description">Test your coding skills and work with international companies remotely.</p>
+            <a href="https://www.turing.com" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 15 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">2</div>
+              <h3 class="internship-title">AngelList (Now Wellfound)</h3>
+            </div>
+            <p class="internship-description">Find internships at tech startups around the globe.</p>
+            <a href="https://wellfound.com" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+          
+          <!-- Internship 16 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">3</div>
+              <h3 class="internship-title">Github Student Pack</h3>
+            </div>
+            <p class="internship-description">Not an internship platform, but gives access to tools & resources companies use.</p>
+            <a href="https://education.github.com/pack" target="_blank" class="internship-link">Visit Platform</a>
+          </div>
+        </div>
+        
+        <h3 class="category-header"> University Internship Programs in Pakistan</h3>
+        <div class="resource-grid">
+          <!-- Internship 17 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">1</div>
+              <h3 class="internship-title">NIP (National Internship Program) by Govt of Pakistan</h3>
+            </div>
+            <p class="internship-description">Government-sponsored internship program for fresh graduates.</p>
+            <a href="https://nip.gov.pk" target="_blank" class="internship-link">Visit Program</a>
+          </div>
+          
+          <!-- Internship 18 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">2</div>
+              <h3 class="internship-title">PSEB Internship Program (Pakistan Software Export Board)</h3>
+            </div>
+            <p class="internship-description">Internships focused on software development and IT exports.</p>
+            <a href="https://internship.pseb.org.pk" target="_blank" class="internship-link">Visit Program</a>
+          </div>
+          
+          <!-- Internship 19 -->
+          <div class="internship-card">
+            <div class="internship-header">
+              <div class="internship-number">3</div>
+              <h3 class="internship-title">NAVTTC Internships & Training Programs</h3>
+            </div>
+            <p class="internship-description">Technical training and internship programs by the National Vocational and Technical Training Commission.</p>
+            <a href="https://www.navttc.gov.pk" target="_blank" class="internship-link">Visit Program</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="waves"></div>
+  </section>
+
+  
+
+  <!-- Particles.js Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Initialize particles.js
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+              "enable": false,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 40,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 40,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 200,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
+</body>
+</html>
