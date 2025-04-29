@@ -1,6 +1,6 @@
 title: CS Connect Pk
 markdown: kramdown
-permalink: pretty
+permalink: /:title/
 
 # Build settings
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
