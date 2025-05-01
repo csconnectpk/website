@@ -181,6 +181,17 @@ p {
     opacity: 1;
 }
 
+/* Hide PK on desktop by default */
+.show-pk {
+  display: none;
+}
+
+/* Show Pakistan by default */
+.show-pakistan {
+  display: inline;
+}
+
+
 .btn-secondary {
     background: transparent;
     color: var(--primary);
